@@ -105,7 +105,7 @@ grade_result(
 
 Create a faceted histogram where each facet represents a neighbourhood and displays the distribution of Airbnb prices in that neighbourhood.
 
-```{r faceted-hist, exercise=TRUE, fig.showtext = TRUE}
+```{r faceted-hist, exercise=TRUE}
 ggplot(___, aes(x = ___)) +
   ___() +
   ___(~___) +

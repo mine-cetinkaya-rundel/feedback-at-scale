@@ -1,11 +1,12 @@
 ---
-title: "learnr dark mode"
+title: "Feedback at scale"
 output: 
   learnr::tutorial:
     progressive: true
     allow_skip: true
     theme: darkly
     css: "css/sketchy.css"
+    highlight: breezedark
     ace_theme: idle_fingers
 runtime: shiny_prerendered
 ---
@@ -19,15 +20,15 @@ library(learnr)
 library(gradethis)
 library(tidyverse)
 library(thematic)
+library(dsbox)
 
 # dark theme and larger font size for plots
 thematic_on(
-  bg = "#212121", 
-  fg = "#fff",
-  font = font_spec(scale = 1.5)
-  )
-
-#theme_set(theme_gray(base_size = 16))
+  bg = "#212121",
+  fg = "#ffffff",
+  accent = "#354b63",
+  font = font_spec(scale = 1.5, families = "Neucha")
+)
 
 # set options for exercises and checking
 gradethis_setup()
@@ -35,24 +36,273 @@ gradethis_setup()
 # hide non-exercise code chunks
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 ```
+  
+## Toolkit
 
-## Darkness
+```{r header, fig.margin = TRUE, out.width = "100%"}
+knitr::include_graphics("images/header.png")
+```
 
-```{r about-me}
+### Narrative
+
+We'll use the **tidyverse** package for this analysis and the **dsbox** package for the data. Let's load these packages!
+
+```{r load-packages, echo = TRUE}
+library(tidyverse)
+library(dsbox)
+```
+
+### Ready-to-run code
+
+The dataset we'll be using is called **edibnb** and it contains information on Airbnb listings in Edinburgh. You can view the names of the variables using the `names()` function.
+
+```{r edibnb-names, exercise=TRUE}
+names(edibnb)
+```
+
+### Multiple choice questions
+
+```{r quiz-rows}
 question(
-  "Learnr dark mode?",
-  answer("Oh yeah!", correct = TRUE),
-  answer("Not for me."),
+  "What does each row in the `edibnb` dataset represent?",
+  answer("A specific attribute of a listing",
+    message = "Attributes of listings are stored in columns, not rows."
+  ),
+  answer("An individual Airbnb listing",
+    correct = TRUE,
+    message = "Each row in the dataset contains one observation of each field, each relating to a single Airbnb listing."
+  ),
+  answer("An Airbnb booking",
+    message = "A listing and a booking are different."
+    ),
+  answer("An Edinburgh neighbourhood"),
   allow_retry = TRUE,
-  correct = "Correct! Wouldn't it be nice to flip a switch and turn on dark mode?"
+  random_answer_order = TRUE
+)
+```
+
+### Coding exercises
+
+How many Airbnb listings are included in this dataset? Use the following code block to find out.
+
+```{r edibnb-nrow, exercise=TRUE}
+___(edibnb)
+```
+
+<div id="edibnb-nrow-hint">
+**Hint:** Which function do we use to obtain the **n**umber of **row**s in a data frame?
+</div>
+
+```{r edibnb-nrow-check}
+grade_result(
+  pass_if(~ (identical(.result, 13245)) | (identical(.result, 13245L)), "There are 13,245 observations, i.e. 13,245 Airbnb listings, in the dataset."),
+  fail_if(~ (identical(.result, 10) | (identical(.result, 10L))), "Each observation is represented in one row. Did you calculate the number of columns instead of rows?"),
+  fail_if(~ TRUE, "Not quite. Each observation is represented in one row. Can you remember which function we use to calculate the number of rows?")
+)
+```
+
+### More complex coding exercises
+
+Create a faceted histogram where each facet represents a neighbourhood and displays the distribution of Airbnb prices in that neighbourhood.
+
+```{r faceted-hist, exercise=TRUE, fig.showtext = TRUE}
+ggplot(___, aes(x = ___)) +
+  ___() +
+  ___(~___) +
+  labs(
+    x = "Airbnb listing price, in £",
+    y = "Frequency",
+    title = "Distribution of Airbnb nightly rates in Edinburgh",
+    subtitle = "By neighbourhood"
   )
 ```
 
-```{r ex, exercise=TRUE}
-ggplot(cars, aes(x = speed, y = dist)) +
-  geom_point()
+```{r faceted-hist-hint-1}
+ggplot(edibnb, aes(x = ___)) +
+  ___() +
+  ___(~___)
+```
+
+```{r faceted-hist-hint-2}
+ggplot(edibnb, aes(x = price)) +
+  ___() +
+  ___(~___)
+```
+
+```{r faceted-hist-hint-3}
+ggplot(edibnb, aes(x = price)) +
+  geom___() +
+  ___(~___)
+```
+
+```{r faceted-hist-hint-4}
+ggplot(edibnb, aes(x = price)) +
+  geom_histogram() +
+  ___(~___)
+```
+
+```{r faceted-hist-hint-5}
+ggplot(edibnb, aes(x = price)) +
+  geom_histogram() +
+  facet_wrap(~___)
+```
+
+```{r faceted-hist-solution}
+ggplot(edibnb, aes(x = price)) +
+  geom_histogram() +
+  facet_wrap(~neighbourhood) +
+  labs(
+    x = "Airbnb listing price, in £",
+    y = "Frequency",
+    title = "Distribution of Airbnb nightly rates in Edinburgh",
+    subtitle = "By neighbourhood"
+  )
+```
+
+```{r faceted-hist-check}
+grade_code("You've successfully created a histogram of Airbnb nightly rates in Edinburgh, faceted by neighbourhood.")
+```
+
+## Writing effective exercises
+
+Calculate the mean nightly price of Airbnb listings in Edinburgh per neighbourhood and report the 3 neighbourhoods with highest mean nightly prices, in descending order of mean price.
+
+### Option 1. Strict check
+
+```{r three-most-expensive, exercise = TRUE}
+
+```
+
+```{r three-most-expensive-solution}
+edibnb %>%
+  group_by(neighbourhood) %>%
+  summarise(mean_price = mean(price, na.rm = TRUE)) %>%
+  arrange(desc(mean_price)) %>%
+  slice_head(n = 3)
+```
+
+```{r three-most-expensive-check}
+grade_code()
 ```
 
 
-## imprisoning me
+## Collecting data
+
+Create a histogram of the distribution of Airbnb listing prices (nightly rates) 
+in Edinburgh and answer the following questions based on the histogram.
+
+```{r price-histogram, exercise=TRUE}
+ggplot(___, aes(x = ___)) +
+  ___() +
+  labs(
+    ___ = "Airbnb listing price, in £",
+    ___ = "Frequency",
+    ___ = "Distribution of Airbnb nightly rates in Edinburgh"
+  )
+```
+
+```{r price-histogram-hint-1}
+ggplot(edibnb, aes(x = ___)) +
+  ___() +
+  labs(
+    ___ = "Airbnb listing price, in £",
+    ___ = "Frequency",
+    ___ = "Distribution of Airbnb nightly rates in Edinburgh"
+  )
+```
+
+```{r price-histogram-hint-2}
+ggplot(edibnb, aes(x = price)) +
+  ___() +
+  labs(
+    ___ = "Airbnb listing price, in £",
+    ___ = "Frequency",
+    ___ = "Distribution of Airbnb nightly rates in Edinburgh"
+  )
+```
+
+```{r price-histogram-hint-3}
+ggplot(edibnb, aes(x = price)) +
+  geom_histogram() +
+  labs(
+    ___ = "Airbnb listing price, in £",
+    ___ = "Frequency",
+    ___ = "Distribution of Airbnb nightly rates in Edinburgh"
+  )
+```
+
+```{r price-histogram-hint-4}
+ggplot(edibnb, aes(x = price)) +
+  geom_histogram() +
+  labs(
+    x = "Airbnb listing price, in £",
+    y = "Frequency",
+    ___ = "Distribution of Airbnb nightly rates in Edinburgh"
+  )
+```
+
+```{r price-histogram-solution}
+ggplot(edibnb, aes(x = price)) +
+  geom_histogram() +
+  labs(
+    x = "Airbnb listing price, in £",
+    y = "Frequency",
+    title = "Distribution of Airbnb nightly rates in Edinburgh"
+  )
+```
+
+```{r price-histogram-check}
+grade_this_code("And note that there are a couple warnings, we'll get to those in a bit.")
+```
+
+```{r most-expensive-neighnourhood}
+quiz(
+  caption = "",
+  question("Which of the following describes the shape of the distribution of nightly rates of Airbnb edibnb in Edinburgh? Check all that apply.",
+    answer("Right skewed",
+      correct = TRUE
+    ),
+    answer("Left skewed",
+      message = "Skew is on the side of the longer tail"
+    ),
+    answer("Symmetric",
+      message = "If you were to draw a vertical line down the middle of the x-axis, would the left and right sides of the distribution look like mirror images?"
+    ),
+    answer("Unimodal",
+      correct = TRUE
+    ),
+    answer("Bimodal",
+      message = "How many prominent peaks do you see?"
+    ),
+    answer("Multimodal",
+      message = "How many prominent peaks do you see?"
+    )
+  ),
+  question("Which of the following is false?",
+    answer("There are no listings with a nightly rate above £1,250."),
+    answer("More than 50% of listings have a nightly rate below £250."),
+    answer("More than 25% of listings have a nightly rate above £500.",
+      correct = TRUE
+    ),
+    answer("It is possible that some of the listings have a nightly rate of £0.")
+  )
+)
+```
+
+
+```{r context="server"}
+learnrhash::encoder_logic()
+```
+
+```{r encode, echo=FALSE}
+learnrhash::encoder_ui(
+  ui_before = div(strong("Once you're done with your quiz, click on Generate Submission below and copy the hash generated and paste it in the form below."), br(), br()),
+  ui_after  = learnrhash::iframe_ui(
+    src = "https://docs.google.com/forms/d/e/1FAIpQLSc4uGpGDICBFRgenxU0FYi0KOJku9f06POZ5OP2RHruBn3Iig/viewform?embedded=true",
+    width="900px", height= "1000px"
+  )
+)
+```
+
+## Distributing at scale
 

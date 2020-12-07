@@ -35,6 +35,32 @@
 
 body {
   font-family: Neucha, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 2rem;  
+}
+
+h1, h2, h3, h4 {
+  font-family: Neucha, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
+}
+
+pre {
+  color: #ebebeb;
+  background-color: #303030;
+  border: none;
+  font-size: 1.5rem;
+}
+
+code {
+  color: #bc1a11;
+  background-color: #303030;
+}
+
+pre:not([class]) {
+  background-color: #303030;
+}
+
+.tutorial-exercise-output code {
+  color: #ebebeb;
+  background-color: #303030;
 }
 
 /* For sidebar */
@@ -60,4 +86,3 @@ body {
 .btn-light:hover {
   color: #354B63;
 }
-

@@ -1,0 +1,58 @@
+---
+title: "learnr dark mode"
+output: 
+  learnr::tutorial:
+    progressive: true
+    allow_skip: true
+    theme: darkly
+    css: "css/sketchy.css"
+    ace_theme: idle_fingers
+runtime: shiny_prerendered
+---
+
+<!-- Add JavaScript code for making the exercise code larger -->
+<script language="JavaScript" src="js/exercise-font-size.js"></script>
+
+```{r setup, include=FALSE}
+# load packages
+library(learnr)
+library(gradethis)
+library(tidyverse)
+library(thematic)
+
+# dark theme and larger font size for plots
+thematic_on(
+  bg = "#212121", 
+  fg = "#fff",
+  font = font_spec(scale = 1.5)
+  )
+
+#theme_set(theme_gray(base_size = 16))
+
+# set options for exercises and checking
+gradethis_setup()
+
+# hide non-exercise code chunks
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+## Darkness
+
+```{r about-me}
+question(
+  "Learnr dark mode?",
+  answer("Oh yeah!", correct = TRUE),
+  answer("Not for me."),
+  allow_retry = TRUE,
+  correct = "Correct! Wouldn't it be nice to flip a switch and turn on dark mode?"
+  )
+```
+
+```{r ex, exercise=TRUE}
+ggplot(cars, aes(x = speed, y = dist)) +
+  geom_point()
+```
+
+
+## imprisoning me
+

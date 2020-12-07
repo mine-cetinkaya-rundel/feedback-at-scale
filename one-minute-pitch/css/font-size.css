@@ -1,0 +1,57 @@
+body {
+	font-size: 16px;
+}
+.topicsList .topic {
+    font-size: 18px;
+}
+p.caption {
+   font-size: 0.6em;
+}
+
+.pageContent {
+  background: #002b36;
+}
+
+body {
+  color: #93a1a1;
+}
+
+.btn-default {
+  background: ##217ebd;
+  color: #93a1a1;
+}
+
+.topicsList .topic.current {
+  background-color: ##217ebd;
+}
+
+.btn-primary{
+  color: white;
+  background-color: #1f7ab7;
+}
+
+.tutorial-question {
+  background: #002b36;
+}
+
+pre {
+  font-size: 22px;
+}
+
+.topicsList .topic {
+  border-bottom: 1px solid #002b36;
+}
+
+
+h3 {
+  font-weight: 500;
+}
+
+.ace-tm {
+  background-color: #002b36;
+  color: #93a1a1;
+}
+
+Style Attribute {
+  color: rgb(147, 161, 161);
+}

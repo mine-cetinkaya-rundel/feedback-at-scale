@@ -55,12 +55,12 @@ code {
 }
 
 pre:not([class]) {
-  background-color: #303030;
+  background-color: #b0b0b0;
 }
 
 .tutorial-exercise-output code {
-  color: #ebebeb;
-  background-color: #303030;
+  color: #212121;
+  background-color: #b0b0b0;
 }
 
 /* For sidebar */

@@ -17,7 +17,7 @@ runtime: shiny_prerendered
 ```{r setup, include=FALSE}
 # load packages
 library(learnr)
-library(gradethis)
+library(gradethis) #gradethis@cfd849
 library(tidyverse)
 library(thematic)
 library(dsbox)
@@ -34,10 +34,10 @@ thematic_on(
 gradethis_setup()
 
 # hide non-exercise code chunks
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(echo = FALSE)
 ```
   
-## Toolkit
+## learnr + gradethis
 
 ```{r header, fig.margin = TRUE, out.width = "100%"}
 knitr::include_graphics("images/header.png")
@@ -62,7 +62,7 @@ names(edibnb)
 
 ### Multiple choice questions
 
-```{r quiz-rows}
+```{r q1}
 question(
   "What does each row in the `edibnb` dataset represent?",
   answer("A specific attribute of a listing",
@@ -74,7 +74,7 @@ question(
   ),
   answer("An Airbnb booking",
     message = "A listing and a booking are different."
-    ),
+  ),
   answer("An Edinburgh neighbourhood"),
   allow_retry = TRUE,
   random_answer_order = TRUE
@@ -105,7 +105,7 @@ grade_result(
 
 Create a faceted histogram where each facet represents a neighbourhood and displays the distribution of Airbnb prices in that neighbourhood.
 
-```{r faceted-hist, exercise=TRUE}
+```{r faceted-hist, exercise=TRUE, out.width = "100%", fig.asp = 1}
 ggplot(___, aes(x = ___)) +
   ___() +
   ___(~___) +
@@ -160,36 +160,169 @@ ggplot(edibnb, aes(x = price)) +
 ```
 
 ```{r faceted-hist-check}
-grade_code("You've successfully created a histogram of Airbnb nightly rates in Edinburgh, faceted by neighbourhood.")
+grade_code("And those warnings... We'll get to them in a bit!")
 ```
+
+## Behind the scenes
+
+<br>
+
+<a href="https://rstudio.cloud/project/2005617">
+<img src="images/cloud-test-drive.png" alt="RStudio Cloud Example" height="80px">
+</a>
+
+<a href="https://github.com/mine-cetinkaya-rundel/feedback-at-scale">
+<img src="images/github-view.png" alt="RStudio Cloud Example" height="80px">
+</a>
+
+
+
+<br>
+
+
 
 ## Writing effective exercises
 
-Calculate the mean nightly price of Airbnb listings in Edinburgh per neighbourhood and report the 3 neighbourhoods with highest mean nightly prices, in descending order of mean price.
+The three most expensive neighbourhoods, in terms of mean nightly price, are New Town, Old Town, and West End. Calculate the median number of reviews in these neighbourhoods and arrange them in descending order.
 
-### Option 1. Strict check
+### Option 1. Strict code check, no scaffolding
 
-```{r three-most-expensive, exercise = TRUE}
+```{r median-rating-option-1, exercise = TRUE}
 
 ```
 
-```{r three-most-expensive-solution}
+```{r median-rating-option-1-solution}
 edibnb %>%
+  filter(neighbourhood %in% c("New Town", "Old Town", "West End")) %>%
   group_by(neighbourhood) %>%
-  summarise(mean_price = mean(price, na.rm = TRUE)) %>%
-  arrange(desc(mean_price)) %>%
-  slice_head(n = 3)
+  summarise(median_rating = median(number_of_reviews)) %>%
+  arrange(desc(median_rating))
 ```
 
-```{r three-most-expensive-check}
+```{r median-rating-option-1-check}
 grade_code()
 ```
 
+<a href="https://github.com/mine-cetinkaya-rundel/feedback-at-scale/blob/3328de617f1b5959c4995d7a38c7e0d0d2f2d35d/learnr/feedback-at-scale.Rmd#L170-L186">
+<img src="images/github-view.png" alt="RStudio Cloud Example" height="80px">
+</a>
+
+### Option 2. Strict check, with scaffolding
+
+```{r median-rating-option-2, exercise = TRUE}
+edibnb %>%
+  filter(neighbourhood ___ c("New Town", "Old Town", "West End")) %>%
+  group_by(___) %>%
+  summarise(___) %>%
+  ___
+```
+
+```{r median-rating-option-2-hint-1}
+edibnb %>%
+  filter(neighbourhood %in% c("New Town", "Old Town", "West End")) %>%
+  group_by(___) %>%
+  summarise(___) %>%
+  ___
+```
+
+```{r median-rating-option-2-hint-2}
+edibnb %>%
+  filter(neighbourhood %in% c("New Town", "Old Town", "West End")) %>%
+  group_by(neighbourhood) %>%
+  summarise(___) %>%
+  ___
+```
+
+```{r median-rating-option-2-hint-3}
+edibnb %>%
+  filter(neighbourhood %in% c("New Town", "Old Town", "West End")) %>%
+  group_by(neighbourhood) %>%
+  summarise(median_rating = ___(number_of_reviews)) %>%
+  ___
+```
+
+```{r median-rating-option-2-hint-4}
+edibnb %>%
+  filter(neighbourhood %in% c("New Town", "Old Town", "West End")) %>%
+  group_by(neighbourhood) %>%
+  summarise(median_rating = ___(number_of_reviews)) %>%
+  arrange(___)
+```
+
+```{r median-rating-option-2-solution}
+edibnb %>%
+  filter(neighbourhood %in% c("New Town", "Old Town", "West End")) %>%
+  group_by(neighbourhood) %>%
+  summarise(median_rating = median(number_of_reviews)) %>%
+  arrange(desc(median_rating))
+```
+
+```{r median-rating-option-2-check}
+grade_code()
+```
+
+<a href="https://github.com/mine-cetinkaya-rundel/feedback-at-scale/blob/3328de617f1b5959c4995d7a38c7e0d0d2f2d35d/learnr/feedback-at-scale.Rmd#L170-L186">
+<img src="images/github-view.png" alt="RStudio Cloud Example" height="80px">
+</a>
+
+### Option 3. More flexibility
+
+```{r median-rating-option-3, exercise = TRUE}
+edibnb %>%
+  ___ 
+```
+
+```{r median-rating-option-3-hint-1}
+edibnb %>%
+  filter(___) %>%
+  ___
+```
+
+```{r median-rating-option-3-hint-2}
+edibnb %>%
+  filter(neighbourhood %in% c("New Town", "Old Town", "West End")) %>%
+  ___ 
+```
+
+```{r median-rating-option-3-hint-3}
+edibnb %>%
+  filter(neighbourhood %in% c("New Town", "Old Town", "West End")) %>%
+  group_by(neighbourhood) %>%
+  ___
+```
+
+```{r median-rating-option-3-hint-4}
+edibnb %>%
+  filter(neighbourhood %in% c("New Town", "Old Town", "West End")) %>%
+  group_by(neighbourhood) %>%
+  summarise(median_rating = median(number_of_reviews)) %>%
+  ___
+```
+
+```{r median-rating-option-3-hint-5}
+edibnb %>%
+  filter(neighbourhood %in% c("New Town", "Old Town", "West End")) %>%
+  group_by(neighbourhood) %>%
+  summarise(median_rating = median(number_of_reviews)) %>%
+  arrange(___)
+```
+
+```{r median-rating-option-3-check}
+grade_result(
+  pass_if(~ identical(as.data.frame(.result)[,2], c(31, 23, 15)), "You've succesfully calculated the median number of ratings and arranged them in descending order."),
+  fail_if(~ identical(as.data.frame(.result)[,2], c(15, 23, 31)), "You've succesfully calculated the median number of ratings, but did you arrange them in ascending order?"),
+  fail_if(~ all(as.data.frame(.result)[,2] %in% c(31, 23, 15)), "You've succesfully calculated the median number of ratings, but did you forget to arrange them?"),
+  fail_if(~ TRUE, "Not quite. Take a peek at the hint!")
+)
+```
+
+<a href="https://github.com/mine-cetinkaya-rundel/feedback-at-scale/blob/3328de617f1b5959c4995d7a38c7e0d0d2f2d35d/learnr/feedback-at-scale.Rmd#L170-L186">
+<img src="images/github-view.png" alt="RStudio Cloud Example" height="80px">
+</a>
 
 ## Collecting data
 
-Create a histogram of the distribution of Airbnb listing prices (nightly rates) 
-in Edinburgh and answer the following questions based on the histogram.
+Create a histogram of the distribution of Airbnb listing prices (nightly rates) in Edinburgh and answer the following questions based on the histogram.
 
 ```{r price-histogram, exercise=TRUE}
 ggplot(___, aes(x = ___)) +
@@ -252,46 +385,49 @@ ggplot(edibnb, aes(x = price)) +
 ```
 
 ```{r price-histogram-check}
-grade_this_code("And note that there are a couple warnings, we'll get to those in a bit.")
+grade_code("And note that there are a couple warnings, we'll get to those in a bit.")
 ```
 
-```{r most-expensive-neighnourhood}
-quiz(
-  caption = "",
-  question("Which of the following describes the shape of the distribution of nightly rates of Airbnb edibnb in Edinburgh? Check all that apply.",
-    answer("Right skewed",
-      correct = TRUE
-    ),
-    answer("Left skewed",
-      message = "Skew is on the side of the longer tail"
-    ),
-    answer("Symmetric",
-      message = "If you were to draw a vertical line down the middle of the x-axis, would the left and right sides of the distribution look like mirror images?"
-    ),
-    answer("Unimodal",
-      correct = TRUE
-    ),
-    answer("Bimodal",
-      message = "How many prominent peaks do you see?"
-    ),
-    answer("Multimodal",
-      message = "How many prominent peaks do you see?"
-    )
+```{r q2}
+question(
+  "Which of the following describes the shape of the distribution of nightly rates of Airbnb edibnb in Edinburgh? Check all that apply.",
+  answer("Right skewed",
+    correct = TRUE
   ),
-  question("Which of the following is false?",
-    answer("There are no listings with a nightly rate above £1,250."),
-    answer("More than 50% of listings have a nightly rate below £250."),
-    answer("More than 25% of listings have a nightly rate above £500.",
-      correct = TRUE
-    ),
-    answer("It is possible that some of the listings have a nightly rate of £0.")
+  answer("Left skewed",
+    message = "Skew is on the side of the longer tail"
+  ),
+  answer("Symmetric",
+    message = "If you were to draw a vertical line down the middle of the x-axis, would the left and right sides of the distribution look like mirror images?"
+  ),
+  answer("Unimodal",
+    correct = TRUE
+  ),
+  answer("Bimodal",
+    message = "How many prominent peaks do you see?"
+  ),
+  answer("Multimodal",
+    message = "How many prominent peaks do you see?"
   )
 )
 ```
 
+```{r q3}
+question(
+  "Which of the following is false?",
+  answer("There are no listings with a nightly rate above £1,250."),
+  answer("More than 50% of listings have a nightly rate below £250."),
+  answer("More than 25% of listings have a nightly rate above £500.",
+    correct = TRUE
+  ),
+  answer("It is possible that some of the listings have a nightly rate of £0.")
+)
+```
+
+### Submit answers
 
 ```{r context="server"}
-learnrhash::encoder_logic()
+learnrhash::encoder_logic(strip_output = TRUE)
 ```
 
 ```{r encode, echo=FALSE}
@@ -304,5 +440,62 @@ learnrhash::encoder_ui(
 )
 ```
 
+### Decode hash
+
+The following would not be included in a student facing tutorial, but has been included here to demonstrate the decoding functionality of the [**learnrhash**](https://github.com/rundel/learnrhash) package. 
+
+```{r context="server"}
+learnrhash::decoder_logic()
+```
+
+```{r decode, echo=FALSE}
+learnrhash::decoder_ui()
+```
+
+###
+
+You can view the collected data [here](https://docs.google.com/spreadsheets/d/1xwkw2TQW71lVa0REVvYep-8ODXEoS_kI1Uz024F45Yg/edit#gid=1064275118).
+
+```{r googlesheet, fig.margin = TRUE, out.width = "100%"}
+knitr::include_graphics("images/googlesheet.png")
+```
+
 ## Distributing at scale
+
+### On shinyapps.io
+
+```{r publish-1, fig.margin = TRUE, out.width = "100%"}
+knitr::include_graphics("images/publish-1.png")
+```
+
+###
+
+```{r publish-2, fig.margin = TRUE, out.width = "70%"}
+knitr::include_graphics("images/publish-2.png")
+```
+
+### In a package
+
+```{r dsbox-1, fig.margin = TRUE, out.width = "80%"}
+knitr::include_graphics("images/dsbox-1.png")
+```
+
+###
+
+```{r dsbox-2, fig.margin = TRUE, out.width = "80%"}
+knitr::include_graphics("images/dsbox-2.png")
+```
+
+###
+
+```{r dsbox-3, fig.margin = TRUE, out.width = "80%"}
+knitr::include_graphics("images/dsbox-3.png")
+```
+
+###
+
+<iframe width="700" height="394" src="https://www.youtube.com/embed/mbpTYc2xBMY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Learn more
+
 

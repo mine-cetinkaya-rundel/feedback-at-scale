@@ -16,19 +16,17 @@ runtime: shiny_prerendered
 
 ```{r setup, include=FALSE}
 # load packages
-library(learnr)
-library(gradethis) #gradethis@cfd849
-library(learnrhash)
-library(dsbox)
-library(glue)
-library(googlesheets4)
+library(learnr)     # rstudio/learnr@7eb2b29
+library(gradethis)  # rstudio-education/gradethis@cfd849
+library(learnrhash) # rundel/learnrhash@714511c
+library(dsbox)      # rstudio-education/dsbox
 library(tidyverse)
-library(tidytext)
-library(stopwords)
 library(thematic)
 
-# suspend authorization for running non-interactively
-gs4_deauth()
+# get fonts working on shinyapps.io
+dir.create("~/.fonts")
+file.copy("www/Neucha.ttf", "~/.fonts")
+system("fc-cache -f ~/.fonts")
 
 # dark theme and larger font size for plots
 thematic_on(
@@ -171,6 +169,7 @@ ggplot(edibnb, aes(x = price)) +
 grade_code("And those warnings... We'll get to them in a bit!")
 ```
 
+
 ## Behind the scenes
 
 <br>
@@ -184,9 +183,7 @@ grade_code("And those warnings... We'll get to them in a bit!")
 </a>
 
 
-
 <br>
-
 
 
 ## Writing effective exercises
@@ -349,6 +346,7 @@ grade_result(
 )
 ```
 
+
 ## Collecting data
 
 Create a histogram of the distribution of Airbnb listing prices (nightly rates) in Edinburgh and answer the following questions based on the histogram.
@@ -486,50 +484,6 @@ learnrhash::decoder_ui()
 You can view the collected data [here](https://docs.google.com/spreadsheets/d/1xwkw2TQW71lVa0REVvYep-8ODXEoS_kI1Uz024F45Yg/edit#gid=1064275118).
 
 <iframe width="900" height="400" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSFC6ZHGCAXCTAXfvy6Q36a1_AblmzScC8HYqZ0T2eSZeCqMCso75DiQQ_JtTWtbxYxc5sWL4QPyAEr/pubhtml?gid=1064275118&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
-
-```{r}
-knitr::knit_exit()
-```
-
-
-### Process data
-
-```{r message = FALSE, warning = FALSE}
-source("marking.R")
-```
-
-### 
-
-**Student submissions**
-
-Read data with [`googlesheets4::read_sheet()`](https://googlesheets4.tidyverse.org/reference/range_read.html)
-
-```{r comment=""}
-student_submissions
-```
-
-### 
-
-**Student scores**
-
-- Un-hash answers with [`learnrhash::extract_questions()`](https://rundel.github.io/learnrhash/reference/extract.html) and/or [`learnrhash::extract_exercises()`](https://rundel.github.io/learnrhash/reference/extract.html)
-- Check against the key with [`dplyr::left_join()`](https://dplyr.tidyverse.org/reference/mutate-joins.html)
-
-
-```{r comment=""}
-tutorial_marks$student_scores
-```
-
-### 
-
-**Feedback summary**
-
-Inspect bigrams with [`tidytext::unnest_tokens()`](https://juliasilge.github.io/tidytext/reference/unnest_tokens.html)
-
-```{r comment=""}
-tutorial_marks$feedback_summary %>%
-  filter(n > 1)
-```
 
 
 ## Distributing at scale

@@ -12,8 +12,7 @@ student_submissions <- read_sheet("https://docs.google.com/spreadsheets/d/1xwkw2
                                   col_names = c("timestamp", "name", "student_id", "hash", "feedback"),
                                   skip = 1)
 
-
-# set key ----------------------------------------------------------------------
+# set answer key ---------------------------------------------------------------
 
 tutorial_key <- tribble(
   ~question_id, ~correct_answer,
@@ -76,3 +75,7 @@ tutorial_marks <- grade_tutorial(
   student = student_submissions,
   key = tutorial_key
 )
+
+tutorial_marks$student_scores
+tutorial_marks$feedback_summary %>%
+  filter(n > 1)

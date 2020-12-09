@@ -6,7 +6,7 @@ output:
     allow_skip: true
     theme: darkly
     css: "css/sketchy.css"
-    highlight: breezedark
+    highlight: espresso
     ace_theme: idle_fingers
 runtime: shiny_prerendered
 ---
@@ -18,9 +18,17 @@ runtime: shiny_prerendered
 # load packages
 library(learnr)
 library(gradethis) #gradethis@cfd849
-library(tidyverse)
-library(thematic)
+library(learnrhash)
 library(dsbox)
+library(glue)
+library(googlesheets4)
+library(tidyverse)
+library(tidytext)
+library(stopwords)
+library(thematic)
+
+# suspend authorization for running non-interactively
+gs4_deauth()
 
 # dark theme and larger font size for plots
 thematic_on(
@@ -39,7 +47,7 @@ knitr::opts_chunk$set(echo = FALSE)
   
 ## learnr + gradethis
 
-```{r header, fig.margin = TRUE, out.width = "100%"}
+```{r header, out.width = "100%"}
 knitr::include_graphics("images/header.png")
 ```
 
@@ -203,9 +211,13 @@ edibnb %>%
 grade_code()
 ```
 
-<a href="https://github.com/mine-cetinkaya-rundel/feedback-at-scale/blob/3328de617f1b5959c4995d7a38c7e0d0d2f2d35d/learnr/feedback-at-scale.Rmd#L170-L186">
-<img src="images/github-view.png" alt="RStudio Cloud Example" height="80px">
-</a>
+### 
+
+**Under the hood**
+
+```{r median-rating-option-1-check-again, eval = FALSE, echo = TRUE}
+grade_code()
+```
 
 ### Option 2. Strict check, with scaffolding
 
@@ -261,9 +273,13 @@ edibnb %>%
 grade_code()
 ```
 
-<a href="https://github.com/mine-cetinkaya-rundel/feedback-at-scale/blob/3328de617f1b5959c4995d7a38c7e0d0d2f2d35d/learnr/feedback-at-scale.Rmd#L170-L186">
-<img src="images/github-view.png" alt="RStudio Cloud Example" height="80px">
-</a>
+### 
+
+**Under the hood**
+
+```{r median-rating-option-2-check-again, eval = FALSE, echo = TRUE}
+grade_code()
+```
 
 ### Option 3. More flexibility
 
@@ -316,9 +332,22 @@ grade_result(
 )
 ```
 
-<a href="https://github.com/mine-cetinkaya-rundel/feedback-at-scale/blob/3328de617f1b5959c4995d7a38c7e0d0d2f2d35d/learnr/feedback-at-scale.Rmd#L170-L186">
-<img src="images/github-view.png" alt="RStudio Cloud Example" height="80px">
-</a>
+### 
+
+**Under the hood**
+
+```{r median-rating-option-3-check-again, eval = FALSE, echo = TRUE}
+grade_result(
+  pass_if(~ identical(as.data.frame(.result)[, 2], c(31, 23, 15)), 
+          "You've succesfully calculated the median number of ratings and arranged them in descending order."),
+  fail_if(~ identical(as.data.frame(.result)[, 2], c(15, 23, 31)), 
+          "You've succesfully calculated the median number of ratings, but did you arrange them in ascending order?"),
+  fail_if(~ all(as.data.frame(.result)[, 2] %in% c(31, 23, 15)), 
+          "You've succesfully calculated the median number of ratings, but did you forget to arrange them?"),
+  fail_if(~TRUE, 
+          "Not quite. Take a peek at the hint!")
+)
+```
 
 ## Collecting data
 
@@ -435,7 +464,7 @@ learnrhash::encoder_ui(
   ui_before = div(strong("Once you're done with your quiz, click on Generate Submission below and copy the hash generated and paste it in the form below."), br(), br()),
   ui_after  = learnrhash::iframe_ui(
     src = "https://docs.google.com/forms/d/e/1FAIpQLSc4uGpGDICBFRgenxU0FYi0KOJku9f06POZ5OP2RHruBn3Iig/viewform?embedded=true",
-    width="900px", height= "1000px"
+    width="700px", height= "1000px"
   )
 )
 ```
@@ -452,50 +481,97 @@ learnrhash::decoder_logic()
 learnrhash::decoder_ui()
 ```
 
-###
+### View data
 
 You can view the collected data [here](https://docs.google.com/spreadsheets/d/1xwkw2TQW71lVa0REVvYep-8ODXEoS_kI1Uz024F45Yg/edit#gid=1064275118).
 
-```{r googlesheet, fig.margin = TRUE, out.width = "100%"}
-knitr::include_graphics("images/googlesheet.png")
+<iframe width="900" height="400" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSFC6ZHGCAXCTAXfvy6Q36a1_AblmzScC8HYqZ0T2eSZeCqMCso75DiQQ_JtTWtbxYxc5sWL4QPyAEr/pubhtml?gid=1064275118&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+
+```{r}
+knitr::knit_exit()
 ```
+
+
+### Process data
+
+```{r message = FALSE, warning = FALSE}
+source("marking.R")
+```
+
+### 
+
+**Student submissions**
+
+Read data with [`googlesheets4::read_sheet()`](https://googlesheets4.tidyverse.org/reference/range_read.html)
+
+```{r comment=""}
+student_submissions
+```
+
+### 
+
+**Student scores**
+
+- Un-hash answers with [`learnrhash::extract_questions()`](https://rundel.github.io/learnrhash/reference/extract.html) and/or [`learnrhash::extract_exercises()`](https://rundel.github.io/learnrhash/reference/extract.html)
+- Check against the key with [`dplyr::left_join()`](https://dplyr.tidyverse.org/reference/mutate-joins.html)
+
+
+```{r comment=""}
+tutorial_marks$student_scores
+```
+
+### 
+
+**Feedback summary**
+
+Inspect bigrams with [`tidytext::unnest_tokens()`](https://juliasilge.github.io/tidytext/reference/unnest_tokens.html)
+
+```{r comment=""}
+tutorial_marks$feedback_summary %>%
+  filter(n > 1)
+```
+
 
 ## Distributing at scale
 
 ### On shinyapps.io
 
-```{r publish-1, fig.margin = TRUE, out.width = "100%"}
+```{r publish-1, out.width = "100%"}
 knitr::include_graphics("images/publish-1.png")
 ```
 
 ###
 
-```{r publish-2, fig.margin = TRUE, out.width = "70%"}
+```{r publish-2, out.width = "70%"}
 knitr::include_graphics("images/publish-2.png")
+```
+
+###
+
+```{r publish-3, out.width = "100%"}
+knitr::include_graphics("images/publish-3.png")
 ```
 
 ### In a package
 
-```{r dsbox-1, fig.margin = TRUE, out.width = "80%"}
+The [**dsbox**](https://rstudio-education.github.io/dsbox/) package contains learnr tutorials (and datasets) accompanying the [Data Science Course in a Box](https://datasciencebox.org/) curriculum.
+
+```{r dsbox-1, out.width = "100%"}
 knitr::include_graphics("images/dsbox-1.png")
 ```
 
 ###
 
-```{r dsbox-2, fig.margin = TRUE, out.width = "80%"}
+```{r dsbox-2, out.width = "50%"}
 knitr::include_graphics("images/dsbox-2.png")
 ```
 
 ###
 
-```{r dsbox-3, fig.margin = TRUE, out.width = "80%"}
+```{r dsbox-3, out.width = "50%"}
 knitr::include_graphics("images/dsbox-3.png")
 ```
 
 ###
 
-<iframe width="700" height="394" src="https://www.youtube.com/embed/mbpTYc2xBMY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-## Learn more
-
-
+<iframe width="800" height="450" src="https://www.youtube.com/embed/mbpTYc2xBMY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

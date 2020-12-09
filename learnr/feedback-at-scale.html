@@ -130,46 +130,42 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    background-color: #232629;
-    color: #7a7c7d;
+    background-color: #2a211c;
+    color: #bdae9d;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #7a7c7d;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #bdae9d;  padding-left: 4px; }
 div.sourceCode
-  { color: #cfcfc2; background-color: #232629; }
+  { color: #bdae9d; background-color: #2a211c; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span { color: #cfcfc2; } /* Normal */
-code span.al { color: #95da4c; background-color: #4d1f24; font-weight: bold; } /* Alert */
-code span.an { color: #3f8058; } /* Annotation */
-code span.at { color: #2980b9; } /* Attribute */
-code span.bn { color: #f67400; } /* BaseN */
-code span.bu { color: #7f8c8d; } /* BuiltIn */
-code span.cf { color: #fdbc4b; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #3daee9; } /* Char */
-code span.cn { color: #27aeae; font-weight: bold; } /* Constant */
-code span.co { color: #7a7c7d; } /* Comment */
-code span.cv { color: #7f8c8d; } /* CommentVar */
-code span.do { color: #a43340; } /* Documentation */
-code span.dt { color: #2980b9; } /* DataType */
-code span.dv { color: #f67400; } /* DecVal */
-code span.er { color: #da4453; text-decoration: underline; } /* Error */
-code span.ex { color: #0099ff; font-weight: bold; } /* Extension */
-code span.fl { color: #f67400; } /* Float */
-code span.fu { color: #8e44ad; } /* Function */
-code span.im { color: #27ae60; } /* Import */
-code span.in { color: #c45b00; } /* Information */
-code span.kw { color: #cfcfc2; font-weight: bold; } /* Keyword */
-code span.op { color: #cfcfc2; } /* Operator */
-code span.ot { color: #27ae60; } /* Other */
-code span.pp { color: #27ae60; } /* Preprocessor */
-code span.re { color: #2980b9; background-color: #153042; } /* RegionMarker */
-code span.sc { color: #3daee9; } /* SpecialChar */
-code span.ss { color: #da4453; } /* SpecialString */
-code span.st { color: #f44f4f; } /* String */
-code span.va { color: #27aeae; } /* Variable */
-code span.vs { color: #da4453; } /* VerbatimString */
-code span.wa { color: #da4453; } /* Warning */
+code span.al { color: #ffff00; } /* Alert */
+code span.an { color: #0066ff; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bn { color: #44aa43; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #43a8ed; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #049b0a; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #0066ff; font-weight: bold; font-style: italic; } /* Comment */
+code span.do { color: #0066ff; font-style: italic; } /* Documentation */
+code span.dt { text-decoration: underline; } /* DataType */
+code span.dv { color: #44aa43; } /* DecVal */
+code span.er { color: #ffff00; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #44aa43; } /* Float */
+code span.fu { color: #ff9358; font-weight: bold; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #0066ff; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #43a8ed; font-weight: bold; } /* Keyword */
+code span.op { } /* Operator */
+code span.pp { font-weight: bold; } /* Preprocessor */
+code span.sc { color: #049b0a; } /* SpecialChar */
+code span.ss { color: #049b0a; } /* SpecialString */
+code span.st { color: #049b0a; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #049b0a; } /* VerbatimString */
+code span.wa { color: #ffff00; font-weight: bold; } /* Warning */
 </style>
 <style type="text/css">
   pre:not([class]) {
@@ -306,7 +302,11 @@ code span.wa { color: #da4453; } /* Warning */
   summarise(median_rating = median(number_of_reviews)) %&gt;%
   arrange(desc(median_rating))</code></pre>
 </div>
-<p><a href="https://github.com/mine-cetinkaya-rundel/feedback-at-scale/blob/3328de617f1b5959c4995d7a38c7e0d0d2f2d35d/learnr/feedback-at-scale.Rmd#L170-L186"> <img src="images/github-view.png" alt="RStudio Cloud Example" height="80px"> </a></p>
+</div>
+<div id="section-section" class="section level3">
+<h3></h3>
+<p><strong>Under the hood</strong></p>
+<div class="sourceCode" id="section-cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb12-1"><a href="#section-cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grade_code</span>()</span></code></pre></div>
 </div>
 <div id="section-option-2.-strict-check-with-scaffolding" class="section level3">
 <h3>Option 2. Strict check, with scaffolding</h3>
@@ -353,7 +353,11 @@ code span.wa { color: #da4453; } /* Warning */
   summarise(median_rating = median(number_of_reviews)) %&gt;%
   arrange(desc(median_rating))</code></pre>
 </div>
-<p><a href="https://github.com/mine-cetinkaya-rundel/feedback-at-scale/blob/3328de617f1b5959c4995d7a38c7e0d0d2f2d35d/learnr/feedback-at-scale.Rmd#L170-L186"> <img src="images/github-view.png" alt="RStudio Cloud Example" height="80px"> </a></p>
+</div>
+<div id="section-section-1" class="section level3">
+<h3></h3>
+<p><strong>Under the hood</strong></p>
+<div class="sourceCode" id="section-cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb19-1"><a href="#section-cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grade_code</span>()</span></code></pre></div>
 </div>
 <div id="section-option-3.-more-flexibility" class="section level3">
 <h3>Option 3. More flexibility</h3>
@@ -392,7 +396,20 @@ code span.wa { color: #da4453; } /* Warning */
   summarise(median_rating = median(number_of_reviews)) %&gt;%
   arrange(___)</code></pre>
 </div>
-<p><a href="https://github.com/mine-cetinkaya-rundel/feedback-at-scale/blob/3328de617f1b5959c4995d7a38c7e0d0d2f2d35d/learnr/feedback-at-scale.Rmd#L170-L186"> <img src="images/github-view.png" alt="RStudio Cloud Example" height="80px"> </a></p>
+</div>
+<div id="section-section-2" class="section level3">
+<h3></h3>
+<p><strong>Under the hood</strong></p>
+<div class="sourceCode" id="section-cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb26-1"><a href="#section-cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grade_result</span>(</span>
+<span id="section-cb26-2"><a href="#section-cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pass_if</span>(<span class="sc">~</span> <span class="fu">identical</span>(<span class="fu">as.data.frame</span>(.result)[, <span class="dv">2</span>], <span class="fu">c</span>(<span class="dv">31</span>, <span class="dv">23</span>, <span class="dv">15</span>)), </span>
+<span id="section-cb26-3"><a href="#section-cb26-3" aria-hidden="true" tabindex="-1"></a>          <span class="st">&quot;You&#39;ve succesfully calculated the median number of ratings and arranged them in descending order.&quot;</span>),</span>
+<span id="section-cb26-4"><a href="#section-cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fail_if</span>(<span class="sc">~</span> <span class="fu">identical</span>(<span class="fu">as.data.frame</span>(.result)[, <span class="dv">2</span>], <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">23</span>, <span class="dv">31</span>)), </span>
+<span id="section-cb26-5"><a href="#section-cb26-5" aria-hidden="true" tabindex="-1"></a>          <span class="st">&quot;You&#39;ve succesfully calculated the median number of ratings, but did you arrange them in ascending order?&quot;</span>),</span>
+<span id="section-cb26-6"><a href="#section-cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fail_if</span>(<span class="sc">~</span> <span class="fu">all</span>(<span class="fu">as.data.frame</span>(.result)[, <span class="dv">2</span>] <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">31</span>, <span class="dv">23</span>, <span class="dv">15</span>)), </span>
+<span id="section-cb26-7"><a href="#section-cb26-7" aria-hidden="true" tabindex="-1"></a>          <span class="st">&quot;You&#39;ve succesfully calculated the median number of ratings, but did you forget to arrange them?&quot;</span>),</span>
+<span id="section-cb26-8"><a href="#section-cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fail_if</span>(<span class="sc">~</span><span class="cn">TRUE</span>, </span>
+<span id="section-cb26-9"><a href="#section-cb26-9" aria-hidden="true" tabindex="-1"></a>          <span class="st">&quot;Not quite. Take a peek at the hint!&quot;</span>)</span>
+<span id="section-cb26-10"><a href="#section-cb26-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 </div>
 </div>
 <div id="section-collecting-data" class="section level2">
@@ -509,7 +526,7 @@ code span.wa { color: #da4453; } /* Warning */
 <pre id="hash_output" class="shiny-text-output" style="white-space: pre-wrap;"></pre>
 <br/>
 <div>
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc4uGpGDICBFRgenxU0FYi0KOJku9f06POZ5OP2RHruBn3Iig/viewform?embedded=true" width="900px" height="1000px"></iframe>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc4uGpGDICBFRgenxU0FYi0KOJku9f06POZ5OP2RHruBn3Iig/viewform?embedded=true" width="700px" height="1000px"></iframe>
 <br/>
 </div>
 <script>selectText = function(node) {
@@ -560,10 +577,47 @@ code span.wa { color: #da4453; } /* Warning */
 <pre class="shiny-text-output noplaceholder" id="decode_exercises" style="white-space: pre-wrap;"></pre>
 </div>
 </div>
-<div id="section-section" class="section level3">
-<h3></h3>
+<div id="section-view-data" class="section level3">
+<h3>View data</h3>
 <p>You can view the collected data <a href="https://docs.google.com/spreadsheets/d/1xwkw2TQW71lVa0REVvYep-8ODXEoS_kI1Uz024F45Yg/edit#gid=1064275118">here</a>.</p>
-<p><img src="images/googlesheet.png" width="100%" /></p>
+<iframe width="900" height="400" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSFC6ZHGCAXCTAXfvy6Q36a1_AblmzScC8HYqZ0T2eSZeCqMCso75DiQQ_JtTWtbxYxc5sWL4QPyAEr/pubhtml?gid=1064275118&amp;single=true&amp;widget=true&amp;headers=false">
+</iframe>
+</div>
+<div id="section-process-data" class="section level3">
+<h3>Process data</h3>
+</div>
+<div id="section-section-3" class="section level3">
+<h3></h3>
+<p><strong>Student submissions</strong></p>
+<p>Read data with <a href="https://googlesheets4.tidyverse.org/reference/range_read.html"><code>googlesheets4::read_sheet()</code></a></p>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["timestamp"],"name":[1],"type":["dttm"],"align":["right"]},{"label":["name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["student_id"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["hash"],"name":[4],"type":["chr"],"align":["left"]},{"label":["feedback"],"name":[5],"type":["chr"],"align":["left"]}],"data":[{"1":"2020-12-08 02:24:50","2":"Captain Barnacles Bear","3":"123","4":"QlpoOTFBWSZTWZRR6DEAAT//1P99SBBCA/pV6wIWwL/v/6BEAAgAEABAAbABmNjARqaT1NJmk1P0oBhNAAPRqeQJiZGTzVA1NEEBpoNAwRoBkANAGENDCKRNEaYianmlDRiAANB6jIDQafpJTJlgFIAwdA6VvqGY1hClry8HGbPseqDlsA6n4toBpT7t2iKgSnNzeCemiqYwqm6Fznwan5M2VwyZAUVKxWFFgYVAnCoJiHAgAGTEDLgxGFCjzuICSXeU+nsdDPUkAj/E6fi0dT1luQlYUhrNW5IhFJk0RnXUXAnqq7q+jmgcJ+PrEKVqGzPm+uzS9nvgG8TCDiVhR2gK+QjFlQRUkbAkdoQyRCMeDdeLvQWJSGrJSy3EZWhr3GFqmcTWQeh0T9sMUIkD5pWNZyjn57Bvbis7QS5+DF2eMs1U066jPU7GWBGw3u7LAuLDEvwYYYD/Uxd9muydOTaX1E7Til22tCV2M4h8lGZbDBW213F9B8JYjsytx1O9vDVGG5yetm4F/FLNyOvbVYlnHJwi+m51MrAoMcHjbCrbOY1rmC+GhHiYd44muM2hmaK2Rg6n3nZh9mY70/4u5IpwoSEoo9Bi","5":"I still don't understand how to tell if a distribution is right skewed or left skewed. I also couldn't figure out how to calculate percentages from a histogram."},{"1":"2020-12-08 02:25:26","2":"Peso Penguin","3":"234","4":"QlpoOTFBWSZTWafr5xEAAOJ/1P95SABCA1pQqwIOwL/v/6BEAAgAEABAAbABWNrUGqaJkaMJpk0MaTJoaNPU09INMjQ9IJUZEyhDTaj1M0EwIxNMATRiegEkiaFPNCaaTIepoAA0yANDTCQ2DqlBgqK3RBwVPB4SpkFBw7Rxi3Glr5kaTMUCLEx8FL3oXvl5KpEAY2ADIyMBmJDQPHRNDEZCQJkBOhDJIGBkgT2QlrYzsgtjRkAaR12EXwN/Hcu62g1FpStd804bygQngyC5tUhgp7MSNFOfG0UYkvB99ZTowz6R6EYwDiSBVvqCdgqmsDBOQpUDkvuQJrqH/mKj/1KDpL5MVvi6osnUcdY/UsoOqinVpG0d6HjTY0zBq2EDCUVsYTzIqiFxTEYYZfz6xoh5zq9PQUSJVSMxnmiMeiMvvFCmYJCKjLo9ga5qiknUWxHSajlIlODLdcSqF7lXPkLyVQBtpeYETCmUWOMafnHGcMZPbSQHFa22mY3WfI8M6/xdyRThQkKfr5xE","5":"What is a right skewed distribution?"},{"1":"2020-12-08 02:26:13","2":"Shellington Sea Otter","3":"345","4":"QlpoOTFBWSZTWYIfQjAAAZ7/1P/9yARCY/pV6wIWwL/v/+BEAAgAEABAAcAB/BTQCJpJ5ExABpiaaAANDT1NqANAABCibUeUbU09QNNAZAAAAAME0NqDmmRkMmCGjCYI00aMQNMmRgACCSIQJgSNNDUG1PQho0GgPSeo9Q9QNiSV8NyjXgE7CL01qVCUoJTEB4oIAwBUm0bwsiEOXvS2YtFKDYvr8wsSDBJvurbk8EhP0V9HTq146EklyMISxMBkYGbSEVHUEghaofrAgpLCYRSAFCBDJCBgGQAosJC2sP9OPqiCOZMIpAYVVmvDwxlI5MOzJGHH9mgM/+pmhXlabrmo/AewYKoUZpliLSEFY2ivpSJ/AIG39TUXPKJOn2SHMEQhHsTyz/LVvo9fgV/8WASIY+vbHx0LJ2ptSlVAoR7x5xQrqCTsy6JOn1Re07NejpoCR3TBdCCdw2PW020Lr92N1FpyxAOBSBn0nWfb1VTLmFJxSFFFiQgtYBloeMAotqAyJWRfevhdibdQ6O6aJMsyqvBsxpDJutVhO1nGNcDJkwbSN2UNJQQU/ORmH4iA9Jg65Q4phEHrg7L0dm2cUhYj1UrnwvWEws5QJbvTizcJ2hYHC1uTMuZZ1FXFo+WFOjgqjMKfmcLYPZLMF6eQpCbeHiVdBLPGCU6VKJmUh36g5HDSLLjbgqaxWvbQnHvWMPid+GtQS2N2pf8XckU4UJCCH0Iw","5":"No questions, all good! But I'm confused by the .groups warning after summarise()."},{"1":"2020-12-08 02:26:57","2":"Professor Inkling Octopus","3":"456","4":"QlpoOTFBWSZTWWg+KaoAAUT/1P/9SARCA/pV+wIWwL/v/6BEAAgAEABAAcABvCdgxBJpppNBkaAAaANA2poNA0ANBzAEYJiAYBME0ZDQwCYIxMVpqeoEYmIBpkAANADQDENGTCKRDSJ4KAyQ0aYgAA2k0NDQZkletliFcLixcOS4TGY2BAOd49jJlo7nrg46AdbzudXFI/DddEwTp5OTl6srAB0wqnDC5zU1PSzZXuMM3GpaANqrAiwMIIVQgnbB0QrxMLQYS3P9sOGqus/H893BVPwfeJkS7M1k7t8kPoTGHwGjLGJtdIpPBEyqEj+gUT0kNR1EsXJ9wULhDAYOm7bG9FIxnsD5FsTg4/9WtsOxCXEV2VgSAKAzAA1KE5iLAQgK3e9hRAv20GBMdA0Y0DpSgxM0IIHpE0ZdRF8dRJkCYbMdrm2qb45vfQbnJsyZbH4XZo12yTsmVu858CN453d14HbeWxfwEYsMMB2lWh1FDdp4iqwlwEyWY3JcLosQnK6cofLWExzFjxYXmFY8pRHXm05GpuDKL9Lrexm3lxuSt49vfqolOKThF9ehyZUSsY2PfaFXhnMbFtS+GsjmdMnoHQW7tzfK+jIxdt+R3ZdTMdSH8XckU4UJBoPimqA=","5":"What does the warning about .groups mean?"},{"1":"2020-12-08 02:27:57","2":"Kwazii Kitten","3":"567","4":"QlpoOTFBWSZTWYIfQjAAAZ7/1P/9yARCY/pV6wIWwL/v/+BEAAgAEABAAcAB/BTQCJpJ5ExABpiaaAANDT1NqANAABCibUeUbU09QNNAZAAAAAME0NqDmmRkMmCGjCYI00aMQNMmRgACCSIQJgSNNDUG1PQho0GgPSeo9Q9QNiSV8NyjXgE7CL01qVCUoJTEB4oIAwBUm0bwsiEOXvS2YtFKDYvr8wsSDBJvurbk8EhP0V9HTq146EklyMISxMBkYGbSEVHUEghaofrAgpLCYRSAFCBDJCBgGQAosJC2sP9OPqiCOZMIpAYVVmvDwxlI5MOzJGHH9mgM/+pmhXlabrmo/AewYKoUZpliLSEFY2ivpSJ/AIG39TUXPKJOn2SHMEQhHsTyz/LVvo9fgV/8WASIY+vbHx0LJ2ptSlVAoR7x5xQrqCTsy6JOn1Re07NejpoCR3TBdCCdw2PW020Lr92N1FpyxAOBSBn0nWfb1VTLmFJxSFFFiQgtYBloeMAotqAyJWRfevhdibdQ6O6aJMsyqvBsxpDJutVhO1nGNcDJkwbSN2UNJQQU/ORmH4iA9Jg65Q4phEHrg7L0dm2cUhYj1UrnwvWEws5QJbvTizcJ2hYHC1uTMuZZ1FXFo+WFOjgqjMKfmcLYPZLMF6eQpCbeHiVdBLPGCU6VKJmUh36g5HDSLLjbgqaxWvbQnHvWMPid+GtQS2N2pf8XckU4UJCCH0Iw","5":"How can we tell whether a distribution is right or left skewed from a histogram? Also, what does the .groups warning with summarise mean?"},{"1":"2020-12-08 02:29:06","2":"Dashi Dog","3":"678","4":"QlpoOTFBWSZTWab3Kq4AAUl/1P99SARCA/pV6wIewL/v/6BEAAgAEABAAcABvCdgEEmJpNAyADRoAGgaepoBoAaDmBMTQYTJkyZGEwTTTIxMAQwERqepGIyZGgGRpo0NGQMQGgaDIEUiGk0yaJom0htJo0AAG0QyNDDSV9zLMFcLmco4rhUsxsCEbni2smXe9UGrioB1P2blcU6W++KkTn4+Py9GaxAdUCpwQBccrU87Nlg88OeoKloA2gBCiwMCITgRO2HmhXWwukYTJl/GPhqrrOn+/Hfqnw9ETIl2ZLJ30yTmSqMPgNmYMU9ChUfXvahWR/QQlekXVopli46+KUAsgj3RQdbsXCRrS8PkXBODsH1h9mlxEuQoaYBQAsDMgDcoTmI+UhABqyuvImL7uMsIHQDwKh6U5lqGBMgesTAKpI6h1lTJo7ccvny03hyU+do3udpnZcz9MLo7rZJ1zK3dbsSDdNjp7czeUi/eIzMMMB2FW67ChuU1lVhLeJksholk1PLv2oVywnKH02BMcp6qOu7Ez2DyFqPbdwbhnbw0RhqfW9bNwLzTK3yaPAVUSnDJzRhXqc7KiVjG18TQq1zmNi2phDWRZyOqbsHfMmm9wlkoyMXbuP1O/R0sx2J/xdyRThQkKb3Kq4A=","5":"I don't understand how to calculate percentages from a histogram"},{"1":"2020-12-08 02:29:50","2":"Tweak Bunny","3":"789","4":"QlpoOTFBWSZTWUF+twIAAUT/1P99SARCA/pV6wIWwL/v/6BEAAgAEABAAcABvHZdw4gkxNTIMgAaNAAA8poBoAaCNUQeiPU09QyaAZBo000DQNMmRoNAjRJoTTTRoAAAANAAABpoEUiGlT8CIm00nqMmgZAMj0mhoaAxK+xlkFcLkxeOa4zGY2BANzxdrJlq7nrg4qAdb8W5XNI+zhhEwTp4+PydWiwAdcKpwQtxtanpZssXOGbnUtAG1VgRYGEEKoQgUJltMAVgYDRAwTbnF6kwtfTykE9FVeRqI0+RmVOziTlSqMPgOmaMTyFCqXq3uGYsPQSEu8yrSO+M+hCKUAwg6boo7kXCRWiAfIvCd/N9ahbo8RLkKJTQKAFgZsAQ64KDERzF93nZvLDEOkR0I1F3Rw2foeifQKOS+UhtjGkFxbSw4IkHNVMwQV3GIHCBTQE/o3nVSnUTBe6BUguKixJLlyFqdZwKRhvEZMMMB/irU9BQ3KcJVYS3jZUTuNyXA79EJyxnKH0VhMbjko355Gdg+UtR7Nel6G8NMYa30v9ZuBebsrfHo1VUSnik5RjXrdDKiVjHa7GhVwzmNi2pjDWR5nfk7R2Ft7humNGRm6XnO7R1Mx2p/F3JFOFCQQX63Ag=","5":"NA"},{"1":"2020-12-08 02:30:20","2":"Turnip the Vegimal","3":"890","4":"QlpoOTFBWSZTWa8cURgAAOL/1P99SABCA1pQqwIWwL/v/6BEAAgAEABAAbABWNrWwlQo9GoaNA0GmQABoeoAANA1GSMhNGmjTQ0AANBoGgDQCRU0EnptJqZMgNAAD1HqBo0B6JNeSVqZhWYpKgkCMAgE6aCk3tRIZdZpfBQjSWlIjEmaDDCCF7cPFGVAGZgBttFhaSlxAkqIsgVShQgMCENJAwaQKVoS/n4MRIEhCwEhnCMjpCfxzPlIQSRuQpVmdXOKATqbTEMOWZchM8yJuy7IJ78YxHJrecbZXc1s8EJNMqYVv7xPAWpw1Cmw5QFFhUSIr5AvcoePqVA+Q00Gl9Tx/VpCh9ZqhhAlgFsLGRxqTUd+Gx0MPy8mWQpreQuL4rDPlKojGNUNRCZdVcimyrgwTggKMRNhBkSMSgYDBjbD5hGANID668NGIeTAZD2YB4oU71es4hcSkUmQEQpxCwTKXCzOwnFgUWSj5hlwZijZpKpyBWrC0116CAeK/xdyRThQkK8cURg=","5":"I wasn't sure about the observations questions initially, but the hints helped"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div id="section-section-4" class="section level3">
+<h3></h3>
+<p><strong>Student scores</strong></p>
+<ul>
+<li>Un-hash answers with <a href="https://rundel.github.io/learnrhash/reference/extract.html"><code>learnrhash::extract_questions()</code></a> and/or <a href="https://rundel.github.io/learnrhash/reference/extract.html"><code>learnrhash::extract_exercises()</code></a></li>
+<li>Check against the key with <a href="https://dplyr.tidyverse.org/reference/mutate-joins.html"><code>dplyr::left_join()</code></a></li>
+</ul>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["student_id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["score"],"name":[3],"type":["int"],"align":["right"]},{"label":["feedback"],"name":[4],"type":["chr"],"align":["left"]}],"data":[{"1":"123","2":"Captain Barnacles Bear","3":"0","4":"I still don't understand how to tell if a distribution is right skewed or left skewed. I also couldn't figure out how to calculate percentages from a histogram."},{"1":"234","2":"Peso Penguin","3":"1","4":"What is a right skewed distribution?"},{"1":"345","2":"Shellington Sea Otter","3":"3","4":"No questions, all good! But I'm confused by the .groups warning after summarise()."},{"1":"456","2":"Professor Inkling Octopus","3":"2","4":"What does the warning about .groups mean?"},{"1":"567","2":"Kwazii Kitten","3":"3","4":"How can we tell whether a distribution is right or left skewed from a histogram? Also, what does the .groups warning with summarise mean?"},{"1":"678","2":"Dashi Dog","3":"2","4":"I don't understand how to calculate percentages from a histogram"},{"1":"789","2":"Tweak Bunny","3":"2","4":"NA"},{"1":"890","2":"Turnip the Vegimal","3":"2","4":"I wasn't sure about the observations questions initially, but the hints helped"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div id="section-section-5" class="section level3">
+<h3></h3>
+<p><strong>Feedback summary</strong></p>
+<p>Inspect bigrams with <a href="https://juliasilge.github.io/tidytext/reference/unnest_tokens.html"><code>tidytext::unnest_tokens()</code></a></p>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["bigram"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"calculate percentages","2":"2"},{"1":"groups warning","2":"2"},{"1":"left skewed","2":"2"},{"1":"right skewed","2":"2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 </div>
 </div>
 <div id="section-distributing-at-scale" class="section level2">
@@ -572,38 +626,47 @@ code span.wa { color: #da4453; } /* Warning */
 <h3>On shinyapps.io</h3>
 <p><img src="images/publish-1.png" width="100%" /></p>
 </div>
-<div id="section-section-1" class="section level3">
+<div id="section-section-6" class="section level3">
 <h3></h3>
 <p><img src="images/publish-2.png" width="70%" /></p>
 </div>
+<div id="section-section-7" class="section level3">
+<h3></h3>
+<p><img src="images/publish-3.png" width="100%" /></p>
+</div>
 <div id="section-in-a-package" class="section level3">
 <h3>In a package</h3>
-<p><img src="images/dsbox-1.png" width="80%" /></p>
+<p>The <a href="https://rstudio-education.github.io/dsbox/"><strong>dsbox</strong></a> package contains learnr tutorials (and datasets) accompanying the <a href="https://datasciencebox.org/">Data Science Course in a Box</a> curriculum.</p>
+<p><img src="images/dsbox-1.png" width="100%" /></p>
 </div>
-<div id="section-section-2" class="section level3">
+<div id="section-section-8" class="section level3">
 <h3></h3>
-<p><img src="images/dsbox-2.png" width="80%" /></p>
+<p><img src="images/dsbox-2.png" width="50%" /></p>
 </div>
-<div id="section-section-3" class="section level3">
+<div id="section-section-9" class="section level3">
 <h3></h3>
-<p><img src="images/dsbox-3.png" width="80%" /></p>
+<p><img src="images/dsbox-3.png" width="50%" /></p>
 </div>
-<div id="section-section-4" class="section level3">
+<div id="section-section-10" class="section level3">
 <h3></h3>
-<iframe width="700" height="394" src="https://www.youtube.com/embed/mbpTYc2xBMY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+<iframe width="800" height="450" src="https://www.youtube.com/embed/mbpTYc2xBMY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
-</div>
-</div>
-<div id="section-learn-more" class="section level2">
-<h2>Learn more</h2>
 
 <script type="application/shiny-prerendered" data-context="server-start">
 # load packages
 library(learnr)
 library(gradethis) #gradethis@cfd849
-library(tidyverse)
-library(thematic)
+library(learnrhash)
 library(dsbox)
+library(glue)
+library(googlesheets4)
+library(tidyverse)
+library(tidytext)
+library(stopwords)
+library(thematic)
+
+# suspend authorization for running non-interactively
+gs4_deauth()
 
 # dark theme and larger font size for plots
 thematic_on(
@@ -636,33 +699,39 @@ session$onSessionEnded(function() {
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_setup_chunk("__setup__", c("# load packages", "library(learnr)", "library(gradethis) #gradethis@cfd849", 
-"library(tidyverse)", "library(thematic)", "library(dsbox)", 
-"", "# dark theme and larger font size for plots", "thematic_on(", 
-"  bg = \"#212121\",", "  fg = \"#ffffff\",", "  accent = \"#354b63\",", 
-"  font = font_spec(scale = 1.5, families = \"Neucha\")", ")", 
-"", "# set options for exercises and checking", "gradethis_setup()", 
+"library(learnrhash)", "library(dsbox)", "library(glue)", "library(googlesheets4)", 
+"library(tidyverse)", "library(tidytext)", "library(stopwords)", 
+"library(thematic)", "", "# suspend authorization for running non-interactively", 
+"gs4_deauth()", "", "# dark theme and larger font size for plots", 
+"thematic_on(", "  bg = \"#212121\",", "  fg = \"#ffffff\",", 
+"  accent = \"#354b63\",", "  font = font_spec(scale = 1.5, families = \"Neucha\")", 
+")", "", "# set options for exercises and checking", "gradethis_setup()", 
 "", "# hide non-exercise code chunks", "knitr::opts_chunk$set(echo = FALSE)"
 ), overwrite = FALSE)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_setup_chunk("__setup__", c("# load packages", "library(learnr)", "library(gradethis) #gradethis@cfd849", 
-"library(tidyverse)", "library(thematic)", "library(dsbox)", 
-"", "# dark theme and larger font size for plots", "thematic_on(", 
-"  bg = \"#212121\",", "  fg = \"#ffffff\",", "  accent = \"#354b63\",", 
-"  font = font_spec(scale = 1.5, families = \"Neucha\")", ")", 
-"", "# set options for exercises and checking", "gradethis_setup()", 
+"library(learnrhash)", "library(dsbox)", "library(glue)", "library(googlesheets4)", 
+"library(tidyverse)", "library(tidytext)", "library(stopwords)", 
+"library(thematic)", "", "# suspend authorization for running non-interactively", 
+"gs4_deauth()", "", "# dark theme and larger font size for plots", 
+"thematic_on(", "  bg = \"#212121\",", "  fg = \"#ffffff\",", 
+"  accent = \"#354b63\",", "  font = font_spec(scale = 1.5, families = \"Neucha\")", 
+")", "", "# set options for exercises and checking", "gradethis_setup()", 
 "", "# hide non-exercise code chunks", "knitr::opts_chunk$set(echo = FALSE)"
 ), overwrite = FALSE)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_setup_chunk("__setup__", c("# load packages", "library(learnr)", "library(gradethis) #gradethis@cfd849", 
-"library(tidyverse)", "library(thematic)", "library(dsbox)", 
-"", "# dark theme and larger font size for plots", "thematic_on(", 
-"  bg = \"#212121\",", "  fg = \"#ffffff\",", "  accent = \"#354b63\",", 
-"  font = font_spec(scale = 1.5, families = \"Neucha\")", ")", 
-"", "# set options for exercises and checking", "gradethis_setup()", 
+"library(learnrhash)", "library(dsbox)", "library(glue)", "library(googlesheets4)", 
+"library(tidyverse)", "library(tidytext)", "library(stopwords)", 
+"library(thematic)", "", "# suspend authorization for running non-interactively", 
+"gs4_deauth()", "", "# dark theme and larger font size for plots", 
+"thematic_on(", "  bg = \"#212121\",", "  fg = \"#ffffff\",", 
+"  accent = \"#354b63\",", "  font = font_spec(scale = 1.5, families = \"Neucha\")", 
+")", "", "# set options for exercises and checking", "gradethis_setup()", 
 "", "# hide non-exercise code chunks", "knitr::opts_chunk$set(echo = FALSE)"
 ), overwrite = FALSE)
 </script>
@@ -704,20 +773,20 @@ learnr:::store_exercise_cache("edibnb-names", list(setup = NULL, chunks = list(l
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "q1", question = structure("What does each row in the <code>edibnb<\u002fcode> dataset represent?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_2970a48", 
+"character")), answers = list(structure(list(id = "lnr_ans_7222afc", 
     option = "A specific attribute of a listing", value = "A specific attribute of a listing", 
     label = structure("A specific attribute of a listing", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = structure("Attributes of listings are stored in columns, not rows.", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
-)), structure(list(id = "lnr_ans_f91da19", option = "An individual Airbnb listing", 
+)), structure(list(id = "lnr_ans_a75c1eb", option = "An individual Airbnb listing", 
     value = "An individual Airbnb listing", label = structure("An individual Airbnb listing", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = structure("Each row in the dataset contains one observation of each field, each relating to a single Airbnb listing.", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
-)), structure(list(id = "lnr_ans_2497e2c", option = "An Airbnb booking", 
+)), structure(list(id = "lnr_ans_f666caf", option = "An Airbnb booking", 
     value = "An Airbnb booking", label = structure("An Airbnb booking", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = structure("A listing and a booking are different.", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
-)), structure(list(id = "lnr_ans_e9396e4", option = "An Edinburgh neighbourhood", 
+)), structure(list(id = "lnr_ans_5b91ea9", option = "An Edinburgh neighbourhood", 
     value = "An Edinburgh neighbourhood", label = structure("An Edinburgh neighbourhood", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", 
@@ -728,7 +797,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "q1-answer", question = "q1"), loading = structure("<strong>Loading:<\u002fstrong> \nWhat does each row in the <code>edibnb<\u002fcode> dataset represent?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 908984556.576721, options = list()), class = c("learnr_radio", 
+    seed = 443311825.293567, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
@@ -985,25 +1054,25 @@ learnr:::store_exercise_cache("price-histogram", list(setup = NULL, chunks = lis
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "q2", question = structure("Which of the following describes the shape of the distribution of nightly rates of Airbnb edibnb in Edinburgh? Check all that apply.", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_d648bc9", 
+"character")), answers = list(structure(list(id = "lnr_ans_8e17b59", 
     option = "Right skewed", value = "Right skewed", label = structure("Right skewed", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_fe12ace", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_9b7b81c", 
     option = "Left skewed", value = "Left skewed", label = structure("Left skewed", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = structure("Skew is on the side of the longer tail", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
-)), structure(list(id = "lnr_ans_fb05316", option = "Symmetric", 
+)), structure(list(id = "lnr_ans_6e72b04", option = "Symmetric", 
     value = "Symmetric", label = structure("Symmetric", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = structure("If you were to draw a vertical line down the middle of the x-axis, would the left and right sides of the distribution look like mirror images?", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
-)), structure(list(id = "lnr_ans_7197155", option = "Unimodal", 
+)), structure(list(id = "lnr_ans_43ee2e2", option = "Unimodal", 
     value = "Unimodal", label = structure("Unimodal", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_1c6e656", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_799b611", 
     option = "Bimodal", value = "Bimodal", label = structure("Bimodal", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = structure("How many prominent peaks do you see?", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
-)), structure(list(id = "lnr_ans_2437d40", option = "Multimodal", 
+)), structure(list(id = "lnr_ans_cd20d24", option = "Multimodal", 
     value = "Multimodal", label = structure("Multimodal", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = structure("How many prominent peaks do you see?", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
@@ -1015,28 +1084,28 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "q2-answer", question = "q2"), loading = structure("<strong>Loading:<\u002fstrong> \nWhich of the following describes the shape of the distribution of nightly rates of Airbnb edibnb in Edinburgh? Check all that apply.\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = FALSE, allow_retry = FALSE, 
-    seed = 1622923945.74427, options = list()), class = c("learnr_checkbox", 
+    seed = 1591136574.25907, options = list()), class = c("learnr_checkbox", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "q3", question = structure("Which of the following is false?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_7a90fd", 
+"character")), answers = list(structure(list(id = "lnr_ans_683c6f2", 
     option = "There are no listings with a nightly rate above £1,250.", 
     value = "There are no listings with a nightly rate above £1,250.", 
     label = structure("There are no listings with a nightly rate above £1,250.", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_96bda79", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_1a699de", 
     option = "More than 50% of listings have a nightly rate below £250.", 
     value = "More than 50% of listings have a nightly rate below £250.", 
     label = structure("More than 50% of listings have a nightly rate below £250.", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_be9677e", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_79c8ad6", 
     option = "More than 25% of listings have a nightly rate above £500.", 
     value = "More than 25% of listings have a nightly rate above £500.", 
     label = structure("More than 25% of listings have a nightly rate above £500.", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_3a43d64", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_948d313", 
     option = "It is possible that some of the listings have a nightly rate of £0.", 
     value = "It is possible that some of the listings have a nightly rate of £0.", 
     label = structure("It is possible that some of the listings have a nightly rate of £0.", html = TRUE, class = c("html", 
@@ -1049,7 +1118,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "q3-answer", question = "q3"), loading = structure("<strong>Loading:<\u002fstrong> \nWhich of the following is false?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = FALSE, allow_retry = FALSE, 
-    seed = 1066101261.00356, options = list()), class = c("learnr_radio", 
+    seed = 263314408.877385, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
@@ -1067,9 +1136,10 @@ learnrhash::decoder_logic()
 <!--/html_preserve-->
 <!--html_preserve-->
 <script type="application/shiny-prerendered" data-context="execution_dependencies">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages","version"]},"class":{"type":"character","attributes":{},"value":["data.frame"]},"row.names":{"type":"integer","attributes":{},"value":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93]}},"value":[{"type":"character","attributes":{},"value":["assertthat","backports","base","broom","bslib","cellranger","checkmate","cli","colorspace","compiler","crayon","curl","datasets","DBI","dbplyr","digest","dplyr","dsbox","ellipsis","evaluate","fansi","farver","fastmap","forcats","fs","generics","ggplot2","glue","gradethis","graphics","grDevices","grid","gtable","haven","hms","htmltools","htmlwidgets","httpuv","httr","jquerylib","jsonlite","knitr","later","lattice","learnr","learnrhash","lifecycle","lubridate","magrittr","markdown","methods","mime","modelr","munsell","pillar","pkgconfig","promises","purrr","R6","ragg","Rcpp","readr","readxl","reprex","rlang","rmarkdown","rprojroot","rstudioapi","rvest","sass","scales","shiny","showtext","showtextdb","stats","stringi","stringr","sysfonts","systemfonts","textshaping","thematic","tibble","tidyr","tidyselect","tidyverse","tools","utils","vctrs","withr","xfun","xml2","xtable","yaml"]},{"type":"character","attributes":{},"value":["0.2.1","1.2.0","4.0.3","0.7.2","0.2.3.9000","1.1.0","2.0.0","2.2.0","2.0-0","4.0.3","1.3.4","4.3","4.0.3","1.1.0","2.0.0","0.6.27","1.0.2.9000","0.1.1","0.3.1","0.14","0.4.1","2.0.3","1.0.1","0.5.0","1.5.0","0.1.0","3.3.2","1.4.2","0.1.0.9004","4.0.3","4.0.3","4.0.3","0.3.0","2.3.1","0.5.3","0.5.0.9003","1.5.2","1.5.4","1.4.2","0.1.2","1.7.1","1.30","1.1.0.1","0.20-41","0.10.1.9006","0.1.0.9000","0.2.0","1.7.9.2","2.0.1","1.1","4.0.3","0.9","0.1.8","0.5.0","1.4.7","2.0.3","1.1.1.9001","0.3.4","2.5.0","0.4.0","1.0.5","1.4.0","1.3.1","0.3.0","0.4.9.9000","2.6.0","2.0.2","0.13.0-9000","0.3.6","0.2.0.9005","1.1.1","1.5.0.9005","0.9-1","3.0","4.0.3","1.5.3","1.4.0","0.8.2","0.3.2.9000","0.2.1","0.1.1","3.0.4","1.1.2","1.1.0","1.3.0","4.0.3","4.0.3","0.3.5","2.3.0","0.19","1.3.2","1.8-4","2.2.1"]}]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages","version"]},"class":{"type":"character","attributes":{},"value":["data.frame"]},"row.names":{"type":"integer","attributes":{},"value":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104]}},"value":[{"type":"character","attributes":{},"value":["assertthat","backports","base","base64enc","broom","bslib","cellranger","checkmate","cli","colorspace","compiler","crayon","curl","datasets","DBI","dbplyr","digest","dplyr","dsbox","ellipsis","evaluate","fansi","farver","fastmap","forcats","fs","gargle","generics","ggplot2","glue","googledrive","googlesheets4","gradethis","graphics","grDevices","grid","gtable","haven","hms","htmltools","htmlwidgets","httpuv","httr","janeaustenr","jquerylib","jsonlite","knitr","later","lattice","learnr","learnrhash","lifecycle","lubridate","magrittr","markdown","Matrix","methods","mime","modelr","munsell","pillar","pkgconfig","promises","purrr","R6","ragg","Rcpp","readr","readxl","reprex","rlang","rmarkdown","rprojroot","rstudioapi","rvest","sass","scales","shiny","showtext","showtextdb","SnowballC","stats","stopwords","stringi","stringr","sysfonts","systemfonts","textshaping","thematic","tibble","tidyr","tidyselect","tidytext","tidyverse","tokenizers","tools","usethis","utils","vctrs","withr","xfun","xml2","xtable","yaml"]},{"type":"character","attributes":{},"value":["0.2.1","1.2.0","4.0.3","0.1-3","0.7.2","0.2.3.9000","1.1.0","2.0.0","2.2.0","2.0-0","4.0.3","1.3.4","4.3","4.0.3","1.1.0","2.0.0","0.6.27","1.0.2.9000","0.1.1","0.3.1","0.14","0.4.1","2.0.3","1.0.1","0.5.0","1.5.0","0.5.0","0.1.0","3.3.2","1.4.2","1.0.1","0.2.0","0.1.0.9004","4.0.3","4.0.3","4.0.3","0.3.0","2.3.1","0.5.3","0.5.0.9003","1.5.2","1.5.4","1.4.2","0.1.5","0.1.2","1.7.1","1.30","1.1.0.1","0.20-41","0.10.1.9006","0.1.0.9000","0.2.0","1.7.9.2","2.0.1","1.1","1.2-18","4.0.3","0.9","0.1.8","0.5.0","1.4.7","2.0.3","1.1.1.9001","0.3.4","2.5.0","0.4.0","1.0.5","1.4.0","1.3.1","0.3.0","0.4.9.9000","2.6.0","2.0.2","0.13.0-9000","0.3.6","0.2.0.9005","1.1.1","1.5.0.9005","0.9-1","3.0","0.7.0","4.0.3","2.1","1.5.3","1.4.0","0.8.2","0.3.2.9000","0.2.1","0.1.1","3.0.4","1.1.2","1.1.0","0.2.6","1.3.0","0.2.1","4.0.3","1.9.0.9000","4.0.3","0.3.5","2.3.0","0.19","1.3.2","1.8-4","2.2.1"]}]}]}
 </script>
 <!--/html_preserve-->
+</div>
 </div>
 
 </div> <!-- topics -->

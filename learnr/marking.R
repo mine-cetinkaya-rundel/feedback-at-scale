@@ -12,9 +12,6 @@ student_submissions <- read_sheet("https://docs.google.com/spreadsheets/d/1xwkw2
                                   col_names = c("timestamp", "name", "student_id", "hash", "feedback"),
                                   skip = 1)
 
-glimpse(student_submissions)
-
-student_submissions
 
 # set key ----------------------------------------------------------------------
 
@@ -24,20 +21,6 @@ tutorial_key <- tribble(
   "q2", c("Right skewed", "Unimodal"),
   "q3", "More than 25% of listings have a nightly rate above £500."
   )
-
-# grade student submissions ----------------------------------------------------
-
-tutorial_marks <- grade_tutorial(
-  student = student_submissions,
-  key = tutorial_key
-  )
-
-names(tutorial_marks)
-
-tutorial_marks$student_answers
-tutorial_marks$feedback_summary
-tutorial_marks$student_scores
-
 
 # function: check_answer -------------------------------------------------------
 # compare student answer and key
@@ -86,3 +69,10 @@ grade_tutorial <- function(student, key) {
     )
   )
 }
+
+# grade student submissions ----------------------------------------------------
+
+tutorial_marks <- grade_tutorial(
+  student = student_submissions,
+  key = tutorial_key
+)

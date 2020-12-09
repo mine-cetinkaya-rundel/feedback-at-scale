@@ -42,26 +42,26 @@ h1, h2, h3, h4 {
   font-family: Neucha, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
 }
 
-pre {
-  color: #ebebeb;
-  background-color: #303030;
-  border: none;
-  font-size: 1.5rem;
-}
+/* Code chunks */
 
-code {
-  color: #bc1a11;
-  background-color: #303030;
+pre {
+  color: #fdfdfd;
+  font-size: 1.5rem;
+  background-color: #323232;
+  border: none;
 }
 
 pre:not([class]) {
-  background-color: #b0b0b0;
+  background-color: #323232;
 }
 
-.tutorial-exercise-output code {
-  color: #212121;
-  background-color: #b0b0b0;
+/* Inline code */
+
+code {
+  color: #fa9057;
+  background-color: #323232;
 }
+
 
 /* For sidebar */
 

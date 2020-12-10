@@ -2,9 +2,10 @@
 .Rhistory
 .RData
 .Ruserdata
-*.mp4
 *.key
 notes/
 rsconnect/
+videos/
 *.mov
 *.mkv
+*.mp4

@@ -5,12 +5,15 @@ library(learnrhash)
 library(tidytext)
 library(glue)
 library(googlesheets4)
+library(here)
 
 # load data --------------------------------------------------------------------
 
-student_submissions <- read_sheet("https://docs.google.com/spreadsheets/d/1xwkw2TQW71lVa0REVvYep-8ODXEoS_kI1Uz024F45Yg/edit?usp=sharing",
-                                  col_names = c("timestamp", "name", "student_id", "hash", "feedback"),
-                                  skip = 1)
+student_submissions <- read_sheet(
+  "https://docs.google.com/spreadsheets/d/1xwkw2TQW71lVa0REVvYep-8ODXEoS_kI1Uz024F45Yg/edit?usp=sharing",
+  col_names = c("timestamp", "name", "student_id", "hash", "feedback"),
+  skip = 1
+  )
 
 # set answer key ---------------------------------------------------------------
 
@@ -75,6 +78,8 @@ tutorial_marks <- grade_tutorial(
   student = student_submissions,
   key = tutorial_key
 )
+
+write_rds(tutorial_marks, here::here("learnr/www/tutorial-marks.rds"))
 
 tutorial_marks$student_scores
 tutorial_marks$feedback_summary %>%

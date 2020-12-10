@@ -1,0 +1,82 @@
+---
+title: "Feedback at scale"
+output: 
+  learnr::tutorial:
+    progressive: true
+    allow_skip: true
+    theme: darkly
+    css: "css/sketchy.css"
+    highlight: espresso
+    ace_theme: idle_fingers
+runtime: shiny_prerendered
+---
+
+<!-- Add JavaScript code for making the exercise code larger -->
+<script language="JavaScript" src="js/exercise-font-size.js"></script>
+
+```{r setup, include=FALSE}
+# load packages
+library(learnr)     # rstudio/learnr@7eb2b29
+library(gradethis)  # rstudio-education/gradethis@cfd849
+library(learnrhash) # rundel/learnrhash@714511c
+library(dsbox)      # rstudio-education/dsbox
+library(tidyverse)
+library(glue)
+
+# set options for exercises and checking
+gradethis_setup()
+
+# hide non-exercise code chunks
+knitr::opts_chunk$set(echo = FALSE)
+```
+  
+## About me
+
+```{r header}
+knitr::include_graphics("images/header.png")
+```
+
+```{r about-me}
+question(
+  "Which of the following is true about me? Check all that apply.",
+  answer("I'm part of the education team at RStudio.", correct = TRUE),
+  answer("I am also a Senior Lecturer at the University of Edinburgh.", correct = TRUE),
+  answer("I have four dogs."), 
+  allow_retry = TRUE,
+  incorrect = "Not quite. I love dogs, but I don't have any! I have four cats.",
+  correct = "Correct! And one more tidbit: I love R!"
+  )
+```
+
+## Where are we?
+
+```{r tada, exercise=TRUE}
+glue(
+  '{emo::ji("tada")} - Enrolments in stats & data science courses are increasing \n',
+  '{emo::ji("smile")} - These courses are getting more computational \n',
+  '{emo::ji("face_with_head_bandage")} - Providing timely and meaningful feedback at scale is hard \n',
+  '{emo::ji("cold_sweat")} - Doing so with fully online delivery of courses is even harder',
+  )
+```
+
+## Where do we go from here?
+
+```{r load-package, exercise = TRUE}
+library(learnr)     # interactive exercises
+library(gradethis)  # automated feedback
+library(dsbox)      # tutorials in a package
+library(learnrhash) # collecting student data
+```
+
+```{r load-package-solution}
+library(learnr)     # interactive exercises
+library(gradethis)  # automated feedback
+library(dsbox)      # tutorials in a package
+library(learnrhash) # collecting student data
+```
+
+```{r load-package-check}
+grade_code(
+  correct = "Packages are loaded, and we're ready to roll!"
+)
+```

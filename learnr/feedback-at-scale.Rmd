@@ -23,11 +23,6 @@ library(dsbox)      # rstudio-education/dsbox
 library(tidyverse)
 library(thematic)
 
-# get fonts working on shinyapps.io
-dir.create("~/.fonts")
-file.copy("www/Neucha.ttf", "~/.fonts")
-system("fc-cache -f ~/.fonts")
-
 # dark theme and larger font size for plots
 thematic_on(
   bg = "#212121",
@@ -66,27 +61,6 @@ The dataset we'll be using is called **edibnb** and it contains information on A
 names(edibnb)
 ```
 
-### Multiple choice questions
-
-```{r q1}
-question(
-  "What does each row in the `edibnb` dataset represent?",
-  answer("A specific attribute of a listing",
-    message = "Attributes of listings are stored in columns, not rows."
-  ),
-  answer("An individual Airbnb listing",
-    correct = TRUE,
-    message = "Each row in the dataset contains one observation of each field, each relating to a single Airbnb listing."
-  ),
-  answer("An Airbnb booking",
-    message = "A listing and a booking are different."
-  ),
-  answer("An Edinburgh neighbourhood"),
-  allow_retry = TRUE,
-  random_answer_order = TRUE
-)
-```
-
 ### Coding exercises
 
 How many Airbnb listings are included in this dataset? Use the following code block to find out.
@@ -106,69 +80,6 @@ grade_result(
   fail_if(~ TRUE, "Not quite. Each observation is represented in one row. Can you remember which function we use to calculate the number of rows?")
 )
 ```
-
-### More complex coding exercises
-
-Create a faceted histogram where each facet represents a neighbourhood and displays the distribution of Airbnb prices in that neighbourhood.
-
-```{r faceted-hist, exercise=TRUE, out.width = "100%", fig.asp = 1}
-ggplot(___, aes(x = ___)) +
-  ___() +
-  ___(~___) +
-  labs(
-    x = "Airbnb listing price, in £",
-    y = "Frequency",
-    title = "Distribution of Airbnb nightly rates in Edinburgh",
-    subtitle = "By neighbourhood"
-  )
-```
-
-```{r faceted-hist-hint-1}
-ggplot(edibnb, aes(x = ___)) +
-  ___() +
-  ___(~___)
-```
-
-```{r faceted-hist-hint-2}
-ggplot(edibnb, aes(x = price)) +
-  ___() +
-  ___(~___)
-```
-
-```{r faceted-hist-hint-3}
-ggplot(edibnb, aes(x = price)) +
-  geom___() +
-  ___(~___)
-```
-
-```{r faceted-hist-hint-4}
-ggplot(edibnb, aes(x = price)) +
-  geom_histogram() +
-  ___(~___)
-```
-
-```{r faceted-hist-hint-5}
-ggplot(edibnb, aes(x = price)) +
-  geom_histogram() +
-  facet_wrap(~___)
-```
-
-```{r faceted-hist-solution}
-ggplot(edibnb, aes(x = price)) +
-  geom_histogram() +
-  facet_wrap(~neighbourhood) +
-  labs(
-    x = "Airbnb listing price, in £",
-    y = "Frequency",
-    title = "Distribution of Airbnb nightly rates in Edinburgh",
-    subtitle = "By neighbourhood"
-  )
-```
-
-```{r faceted-hist-check}
-grade_code("And those warnings... We'll get to them in a bit!")
-```
-
 
 ## Behind the scenes
 
@@ -190,7 +101,7 @@ grade_code("And those warnings... We'll get to them in a bit!")
 
 The three most expensive neighbourhoods, in terms of mean nightly price, are New Town, Old Town, and West End. Calculate the median number of reviews in these neighbourhoods and arrange them in descending order.
 
-### Option 1. Strict code check, no scaffolding
+### Option 1. No scaffolding
 
 ```{r median-rating-option-1, exercise = TRUE}
 
@@ -208,15 +119,9 @@ edibnb %>%
 grade_code()
 ```
 
-### 
+### Option 2. Scaffolding and Strict check
 
-**Under the hood**
-
-```{r median-rating-option-1-check-again, eval = FALSE, echo = TRUE}
-grade_code()
-```
-
-### Option 2. Strict check, with scaffolding
+Using `gradethis::grade_code()`:
 
 ```{r median-rating-option-2, exercise = TRUE}
 edibnb %>%
@@ -270,15 +175,9 @@ edibnb %>%
 grade_code()
 ```
 
-### 
+### Option 3. Scaffolding and flexibility
 
-**Under the hood**
-
-```{r median-rating-option-2-check-again, eval = FALSE, echo = TRUE}
-grade_code()
-```
-
-### Option 3. More flexibility
+Using `gradethis::grade_result()`:
 
 ```{r median-rating-option-3, exercise = TRUE}
 edibnb %>%
@@ -391,16 +290,6 @@ ggplot(edibnb, aes(x = price)) +
   )
 ```
 
-```{r price-histogram-hint-4}
-ggplot(edibnb, aes(x = price)) +
-  geom_histogram() +
-  labs(
-    x = "Airbnb listing price, in £",
-    y = "Frequency",
-    ___ = "Distribution of Airbnb nightly rates in Edinburgh"
-  )
-```
-
 ```{r price-histogram-solution}
 ggplot(edibnb, aes(x = price)) +
   geom_histogram() +
@@ -485,32 +374,37 @@ You can view the collected data [here](https://docs.google.com/spreadsheets/d/1x
 
 <iframe width="900" height="400" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSFC6ZHGCAXCTAXfvy6Q36a1_AblmzScC8HYqZ0T2eSZeCqMCso75DiQQ_JtTWtbxYxc5sWL4QPyAEr/pubhtml?gid=1064275118&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
 
+### Process data
+
+```{r echo=FALSE}
+tutorial_marks <- read_rds("www/tutorial-marks.rds")
+```
+
+**Student scores**
+
+```{r}
+tutorial_marks$student_scores
+```
+
+**Feedback summary**
+
+```{r}
+tutorial_marks$feedback_summary
+```
 
 ## Distributing at scale
 
 ### On shinyapps.io
 
-```{r publish-1, out.width = "100%"}
-knitr::include_graphics("images/publish-1.png")
-```
-
-###
-
-```{r publish-2, out.width = "70%"}
-knitr::include_graphics("images/publish-2.png")
-```
-
-###
-
-```{r publish-3, out.width = "100%"}
-knitr::include_graphics("images/publish-3.png")
+```{r publish-1, out.width = "90%"}
+knitr::include_graphics("images/publish.png")
 ```
 
 ### In a package
 
 The [**dsbox**](https://rstudio-education.github.io/dsbox/) package contains learnr tutorials (and datasets) accompanying the [Data Science Course in a Box](https://datasciencebox.org/) curriculum.
 
-```{r dsbox-1, out.width = "100%"}
+```{r dsbox-1, out.width = "80%"}
 knitr::include_graphics("images/dsbox-1.png")
 ```
 

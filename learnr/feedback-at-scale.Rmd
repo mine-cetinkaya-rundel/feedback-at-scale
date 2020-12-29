@@ -88,6 +88,17 @@ grade_this({
 })
 ```
 
+```{r q1}
+question("What does each row in the `edibnb` dataset represent?",
+    answer("The values of a certain variable"),
+    answer("An individual Airbnb listing",
+           correct = TRUE,
+           message = "Each row in the dataset contains one observation of each field, each relating to a single Airbnb listing."),
+    answer("An Airbnb booking"),
+    answer("An Edinburgh neighbourhood")
+  )
+```
+
 ## Behind the scenes
 
 <br>
@@ -270,7 +281,7 @@ grade_this({
 ```
 
 
-## Collecting data
+## Collecting data: learnrhash
 
 Create a histogram of the distribution of Airbnb listing prices (nightly rates) in Edinburgh and answer the following questions based on the histogram.
 

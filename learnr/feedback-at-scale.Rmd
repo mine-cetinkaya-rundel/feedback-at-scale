@@ -261,7 +261,7 @@ grade_this({
       neighbourhood = c("West End", "New Town", "Old Town"), 
       median_rating = c(15, 23, 31)
       ), 
-    message = "You've succesfully calculated the median number of ratings, but did you forget to arrange them in ascending order?")
+    message = "You've succesfully calculated the median number of ratings, but did you forget to arrange them in descending order?")
   fail_if_equal(
     tibble(
       neighbourhood = c("New Town", "Old Town", "West End"), 

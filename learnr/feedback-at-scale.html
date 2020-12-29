@@ -215,6 +215,14 @@ code span.wa { color: #ffff00; font-weight: bold; } /* Warning */
 <div id="section-edibnb-nrow-hint">
 <p><strong>Hint:</strong> Which function do we use to obtain the <strong>n</strong>umber of <strong>row</strong>s in a data frame?</p>
 </div>
+<div class="panel panel-default">
+<div data-label="q1" class="tutorial-question panel-body">
+<div id="q1-answer_container" class="shiny-html-output"></div>
+<div id="q1-message_container" class="shiny-html-output"></div>
+<div id="q1-action_button_container" class="shiny-html-output"></div>
+<script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
+</div>
+</div>
 </div>
 </div>
 <div id="section-behind-the-scenes" class="section level2">
@@ -348,7 +356,7 @@ code span.wa { color: #ffff00; font-weight: bold; } /* Warning */
 <span id="section-cb18-11"><a href="#section-cb18-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">neighbourhood =</span> <span class="fu">c</span>(<span class="st">&quot;West End&quot;</span>, <span class="st">&quot;New Town&quot;</span>, <span class="st">&quot;Old Town&quot;</span>), </span>
 <span id="section-cb18-12"><a href="#section-cb18-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">median_rating =</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">23</span>, <span class="dv">31</span>)</span>
 <span id="section-cb18-13"><a href="#section-cb18-13" aria-hidden="true" tabindex="-1"></a>      ), </span>
-<span id="section-cb18-14"><a href="#section-cb18-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">message =</span> <span class="st">&quot;You&#39;ve succesfully calculated the median number of ratings, but did you forget to arrange them in ascending order?&quot;</span>)</span>
+<span id="section-cb18-14"><a href="#section-cb18-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">message =</span> <span class="st">&quot;You&#39;ve succesfully calculated the median number of ratings, but did you forget to arrange them in descending order?&quot;</span>)</span>
 <span id="section-cb18-15"><a href="#section-cb18-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fail_if_equal</span>(</span>
 <span id="section-cb18-16"><a href="#section-cb18-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(</span>
 <span id="section-cb18-17"><a href="#section-cb18-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">neighbourhood =</span> <span class="fu">c</span>(<span class="st">&quot;New Town&quot;</span>, <span class="st">&quot;Old Town&quot;</span>, <span class="st">&quot;West End&quot;</span>), </span>
@@ -360,8 +368,8 @@ code span.wa { color: #ffff00; font-weight: bold; } /* Warning */
 <span id="section-cb18-23"><a href="#section-cb18-23" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 </div>
 </div>
-<div id="section-collecting-data" class="section level2">
-<h2>Collecting data</h2>
+<div id="section-collecting-data-learnrhash" class="section level2">
+<h2>Collecting data: learnrhash</h2>
 <p>Create a histogram of the distribution of Airbnb listing prices (nightly rates) in Edinburgh and answer the following questions based on the histogram.</p>
 <div class="tutorial-exercise" data-label="price-histogram" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>ggplot(___, aes(x = ___)) +
@@ -527,13 +535,13 @@ code span.wa { color: #ffff00; font-weight: bold; } /* Warning */
 <p><strong>Student scores</strong></p>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["student_id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["score"],"name":[3],"type":["int"],"align":["right"]},{"label":["feedback"],"name":[4],"type":["chr"],"align":["left"]}],"data":[{"1":"123","2":"Captain Barnacles Bear","3":"0","4":"I still don't understand how to tell if a distribution is right skewed or left skewed. I also couldn't figure out how to calculate percentages from a histogram."},{"1":"234","2":"Peso Penguin","3":"1","4":"What is a right skewed distribution?"},{"1":"345","2":"Shellington Sea Otter","3":"3","4":"No questions, all good! But I'm confused by the .groups warning after summarise()."},{"1":"456","2":"Professor Inkling Octopus","3":"2","4":"What does the warning about .groups mean?"},{"1":"567","2":"Kwazii Kitten","3":"3","4":"How can we tell whether a distribution is right or left skewed from a histogram? Also, what does the .groups warning with summarise mean?"},{"1":"678","2":"Dashi Dog","3":"2","4":"I don't understand how to calculate percentages from a histogram"},{"1":"789","2":"Tweak Bunny","3":"2","4":"NA"},{"1":"890","2":"Turnip the Vegimal","3":"2","4":"I wasn't sure about the observations questions initially, but the hints helped"},{"1":"1234","2":"Mine","3":"2","4":"NA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["student_id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["score"],"name":[3],"type":["int"],"align":["right"]},{"label":["feedback"],"name":[4],"type":["chr"],"align":["left"]}],"data":[{"1":"123","2":"Captain Barnacles Bear","3":"0","4":"I still don't understand how to tell if a distribution is right skewed. I also couldn't figure out how to calculate percentages from a histogram."},{"1":"234","2":"Peso Penguin","3":"1","4":"What is a right skewed distribution?"},{"1":"345","2":"Shellington Sea Otter","3":"3","4":"No questions, all good! But I'm confused by the .groups warning after summarise()."},{"1":"456","2":"Professor Inkling Octopus","3":"2","4":"I'm not sure why we care if the distribution is right skewed or left skewed. I don't understand the .groups warning."},{"1":"567","2":"Kwazii Kitten","3":"3","4":"How can we tell whether a distribution is right or left skewed from a histogram? Also, I'm confused by the .groups warning after summarise()."},{"1":"678","2":"Dashi Dog","3":"2","4":"I don't understand how to calculate percentages from a histogram."},{"1":"789","2":"Tweak Bunny","3":"2","4":"NA"},{"1":"890","2":"Turnip the Vegimal","3":"2","4":"I wasn't sure about the observations questions initially, but the hints helped"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p><strong>Feedback summary</strong></p>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["bigram"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"calculate percentages","2":"2"},{"1":"groups warning","2":"2"},{"1":"left skewed","2":"2"},{"1":"right skewed","2":"2"},{"1":"groups mean","2":"1"},{"1":"hints helped","2":"1"},{"1":"histogram also","2":"1"},{"1":"observations questions","2":"1"},{"1":"questions initially","2":"1"},{"1":"skewed distribution","2":"1"},{"1":"summarise mean","2":"1"},{"1":"tell whether","2":"1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["bigram"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"groups warning","2":"3"},{"1":"right skewed","2":"3"},{"1":"calculate percentages","2":"2"},{"1":"left skewed","2":"2"},{"1":"hints helped","2":"1"},{"1":"histogram also","2":"1"},{"1":"observations questions","2":"1"},{"1":"questions initially","2":"1"},{"1":"skewed distribution","2":"1"},{"1":"tell whether","2":"1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -772,6 +780,36 @@ learnr:::store_exercise_cache("edibnb-nrow", list(setup = NULL, chunks = list(li
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "q1", question = structure("What does each row in the <code>edibnb<\u002fcode> dataset represent?", html = TRUE, class = c("html", 
+"character")), answers = list(structure(list(id = "lnr_ans_99fb158", 
+    option = "The values of a certain variable", value = "The values of a certain variable", 
+    label = structure("The values of a certain variable", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_48752d3", 
+    option = "An individual Airbnb listing", value = "An individual Airbnb listing", 
+    label = structure("An individual Airbnb listing", html = TRUE, class = c("html", 
+    "character")), correct = TRUE, message = structure("Each row in the dataset contains one observation of each field, each relating to a single Airbnb listing.", html = TRUE, class = c("html", 
+    "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
+)), structure(list(id = "lnr_ans_38bf056", option = "An Airbnb booking", 
+    value = "An Airbnb booking", label = structure("An Airbnb booking", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_14c5d55", 
+    option = "An Edinburgh neighbourhood", value = "An Edinburgh neighbourhood", 
+    label = structure("An Edinburgh neighbourhood", html = TRUE, class = c("html", 
+    "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
+"tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", 
+"character")), try_again = structure("Try Again", html = TRUE, class = c("html", 
+"character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
+"character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
+"character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
+"character")), message = NULL, post_message = NULL), ids = list(
+    answer = "q1-answer", question = "q1"), loading = structure("<strong>Loading:<\u002fstrong> \nWhat does each row in the <code>edibnb<\u002fcode> dataset represent?\n<br/><br/><br/>", html = TRUE, class = c("html", 
+"character")), random_answer_order = FALSE, allow_retry = FALSE, 
+    seed = 892549143.584374, options = list()), class = c("learnr_radio", 
+"tutorial_question")))
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
 `tutorial-exercise-median-rating-option-1-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-median-rating-option-1-code-editor`)), session)
 output$`tutorial-exercise-median-rating-option-1-output` <- renderUI({
   `tutorial-exercise-median-rating-option-1-result`()
@@ -868,7 +906,7 @@ learnr:::store_exercise_cache("median-rating-option-3", list(setup = NULL, chunk
     "    tibble(", "      neighbourhood = c(\"Old Town\", \"New Town\", \"West End\"), ", 
     "      median_rating = c(31, 23, 15)", "      ), ", "    message = \"You've succesfully calculated the median number of ratings and arranged them in descending order.\"", 
     "    )", "  fail_if_equal(", "    tibble(", "      neighbourhood = c(\"West End\", \"New Town\", \"Old Town\"), ", 
-    "      median_rating = c(15, 23, 31)", "      ), ", "    message = \"You've succesfully calculated the median number of ratings, but did you forget to arrange them in ascending order?\")", 
+    "      median_rating = c(15, 23, 31)", "      ), ", "    message = \"You've succesfully calculated the median number of ratings, but did you forget to arrange them in descending order?\")", 
     "  fail_if_equal(", "    tibble(", "      neighbourhood = c(\"New Town\", \"Old Town\", \"West End\"), ", 
     "      median_rating = c(23, 31, 15)", "      ), ", "    message = \"You've succesfully calculated the median number of ratings, but did you forget to arrange them?\"", 
     "    )", "  fail(message = \"Not quite. Take a peek at the hints!\")", 
@@ -944,25 +982,25 @@ learnr:::store_exercise_cache("price-histogram", list(setup = NULL, chunks = lis
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "q2", question = structure("Which of the following describes the shape of the distribution of nightly rates of Airbnb edibnb in Edinburgh? Check all that apply.", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_7aa9c2e", 
+"character")), answers = list(structure(list(id = "lnr_ans_f360762", 
     option = "Right skewed", value = "Right skewed", label = structure("Right skewed", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_a3b9763", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_ae88332", 
     option = "Left skewed", value = "Left skewed", label = structure("Left skewed", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = structure("Skew is on the side of the longer tail", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
-)), structure(list(id = "lnr_ans_d0df11e", option = "Symmetric", 
+)), structure(list(id = "lnr_ans_d7e9d13", option = "Symmetric", 
     value = "Symmetric", label = structure("Symmetric", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = structure("If you were to draw a vertical line down the middle of the x-axis, would the left and right sides of the distribution look like mirror images?", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
-)), structure(list(id = "lnr_ans_171c28c", option = "Unimodal", 
+)), structure(list(id = "lnr_ans_9207d7b", option = "Unimodal", 
     value = "Unimodal", label = structure("Unimodal", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_db60a71", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_23fe5a2", 
     option = "Bimodal", value = "Bimodal", label = structure("Bimodal", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = structure("How many prominent peaks do you see?", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
-)), structure(list(id = "lnr_ans_e524445", option = "Multimodal", 
+)), structure(list(id = "lnr_ans_d0d4afc", option = "Multimodal", 
     value = "Multimodal", label = structure("Multimodal", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = structure("How many prominent peaks do you see?", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
@@ -974,28 +1012,28 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "q2-answer", question = "q2"), loading = structure("<strong>Loading:<\u002fstrong> \nWhich of the following describes the shape of the distribution of nightly rates of Airbnb edibnb in Edinburgh? Check all that apply.\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = FALSE, allow_retry = FALSE, 
-    seed = 764640814.643936, options = list()), class = c("learnr_checkbox", 
+    seed = 321666813.350212, options = list()), class = c("learnr_checkbox", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "q3", question = structure("Which of the following is false?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_eecc224", 
+"character")), answers = list(structure(list(id = "lnr_ans_288c24d", 
     option = "There are no listings with a nightly rate above £1,250.", 
     value = "There are no listings with a nightly rate above £1,250.", 
     label = structure("There are no listings with a nightly rate above £1,250.", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_ddc09dc", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_dac479", 
     option = "More than 50% of listings have a nightly rate below £250.", 
     value = "More than 50% of listings have a nightly rate below £250.", 
     label = structure("More than 50% of listings have a nightly rate below £250.", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_58647aa", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_bd95b6b", 
     option = "More than 25% of listings have a nightly rate above £500.", 
     value = "More than 25% of listings have a nightly rate above £500.", 
     label = structure("More than 25% of listings have a nightly rate above £500.", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_1ef8af7", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_9ef7594", 
     option = "It is possible that some of the listings have a nightly rate of £0.", 
     value = "It is possible that some of the listings have a nightly rate of £0.", 
     label = structure("It is possible that some of the listings have a nightly rate of £0.", html = TRUE, class = c("html", 
@@ -1008,7 +1046,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "q3-answer", question = "q3"), loading = structure("<strong>Loading:<\u002fstrong> \nWhich of the following is false?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = FALSE, allow_retry = FALSE, 
-    seed = 1645347490.73383, options = list()), class = c("learnr_radio", 
+    seed = 2095704592.02411, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  

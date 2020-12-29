@@ -16,12 +16,13 @@ runtime: shiny_prerendered
 
 ```{r setup, include=FALSE}
 # load packages
-library(learnr)     # rstudio/learnr@7eb2b29
-library(gradethis)  # rstudio-education/gradethis@cfd849
+library(learnr)     # rstudio/learnr@bdb2c52
+library(gradethis)  # rstudio-education/gradethis@b2d9ef5
 library(learnrhash) # rundel/learnrhash@714511c
-library(dsbox)      # rstudio-education/dsbox
+library(dsbox)      # rstudio-education/dsbox@827bd71
+library(thematic)   # rstudio/thematic@0a6b4b7
 library(tidyverse)
-library(thematic)
+library(showtext)
 
 # dark theme and larger font size for plots
 thematic_on(
@@ -33,6 +34,12 @@ thematic_on(
 
 # set options for exercises and checking
 gradethis_setup()
+
+# make fonts work
+# https://stackoverflow.com/a/55159245/5157940
+dir.create("~/.fonts")
+file.copy("www/neucha.ttf", "~/.fonts")
+system("fc-cache -f ~/.fonts")
 
 # hide non-exercise code chunks
 knitr::opts_chunk$set(echo = FALSE)
@@ -74,11 +81,11 @@ ___(edibnb)
 </div>
 
 ```{r edibnb-nrow-check}
-grade_result(
-  pass_if(~ (identical(.result, 13245)) | (identical(.result, 13245L)), "There are 13,245 observations, i.e. 13,245 Airbnb listings, in the dataset."),
-  fail_if(~ (identical(.result, 10) | (identical(.result, 10L))), "Each observation is represented in one row. Did you calculate the number of columns instead of rows?"),
-  fail_if(~ TRUE, "Not quite. Each observation is represented in one row. Can you remember which function we use to calculate the number of rows?")
-)
+grade_this({
+  pass_if_equal(13245L, message = "There are 13,245 observations, i.e. 13,245 Airbnb listings, in the dataset.")
+  fail_if_equal(10L, message = "Each observation is represented in one row. Did you calculate the number of columns instead of rows?")
+  fail(message = "Not quite. Each observation is represented in one row. Can you remember which function we use to calculate the number of rows?")
+})
 ```
 
 ## Behind the scenes
@@ -103,6 +110,8 @@ The three most expensive neighbourhoods, in terms of mean nightly price, are New
 
 ### Option 1. No scaffolding
 
+Using `gradethis::grade_this_code()`:
+
 ```{r median-rating-option-1, exercise = TRUE}
 
 ```
@@ -116,12 +125,12 @@ edibnb %>%
 ```
 
 ```{r median-rating-option-1-check}
-grade_code()
+grade_this_code()
 ```
 
 ### Option 2. Scaffolding and Strict check
 
-Using `gradethis::grade_code()`:
+Using `gradethis::grade_this_code()`:
 
 ```{r median-rating-option-2, exercise = TRUE}
 edibnb %>%
@@ -172,12 +181,20 @@ edibnb %>%
 ```
 
 ```{r median-rating-option-2-check}
-grade_code()
+grade_this_code()
 ```
+
+###
+
+**Under the hood**
+
+```{r ref.label = "median-rating-option-2-check", eval = FALSE, echo = TRUE}
+```
+
 
 ### Option 3. Scaffolding and flexibility
 
-Using `gradethis::grade_result()`:
+Using `gradethis::grade_this()`:
 
 ```{r median-rating-option-3, exercise = TRUE}
 edibnb %>%
@@ -220,29 +237,36 @@ edibnb %>%
 ```
 
 ```{r median-rating-option-3-check}
-grade_result(
-  pass_if(~ identical(as.data.frame(.result)[,2], c(31, 23, 15)), "You've succesfully calculated the median number of ratings and arranged them in descending order."),
-  fail_if(~ identical(as.data.frame(.result)[,2], c(15, 23, 31)), "You've succesfully calculated the median number of ratings, but did you arrange them in ascending order?"),
-  fail_if(~ all(as.data.frame(.result)[,2] %in% c(31, 23, 15)), "You've succesfully calculated the median number of ratings, but did you forget to arrange them?"),
-  fail_if(~ TRUE, "Not quite. Take a peek at the hint!")
-)
+grade_this({
+  pass_if_equal(
+    tibble(
+      neighbourhood = c("Old Town", "New Town", "West End"), 
+      median_rating = c(31, 23, 15)
+      ), 
+    message = "You've succesfully calculated the median number of ratings and arranged them in descending order."
+    )
+  fail_if_equal(
+    tibble(
+      neighbourhood = c("West End", "New Town", "Old Town"), 
+      median_rating = c(15, 23, 31)
+      ), 
+    message = "You've succesfully calculated the median number of ratings, but did you forget to arrange them in ascending order?")
+  fail_if_equal(
+    tibble(
+      neighbourhood = c("New Town", "Old Town", "West End"), 
+      median_rating = c(23, 31, 15)
+      ), 
+    message = "You've succesfully calculated the median number of ratings, but did you forget to arrange them?"
+    )
+  fail(message = "Not quite. Take a peek at the hints!")
+})
 ```
 
 ### 
 
 **Under the hood**
 
-```{r median-rating-option-3-check-again, eval = FALSE, echo = TRUE}
-grade_result(
-  pass_if(~ identical(as.data.frame(.result)[, 2], c(31, 23, 15)), 
-          "You've succesfully calculated the median number of ratings and arranged them in descending order."),
-  fail_if(~ identical(as.data.frame(.result)[, 2], c(15, 23, 31)), 
-          "You've succesfully calculated the median number of ratings, but did you arrange them in ascending order?"),
-  fail_if(~ all(as.data.frame(.result)[, 2] %in% c(31, 23, 15)), 
-          "You've succesfully calculated the median number of ratings, but did you forget to arrange them?"),
-  fail_if(~TRUE, 
-          "Not quite. Take a peek at the hint!")
-)
+```{r ref.label = "median-rating-option-3-check", eval = FALSE, echo = TRUE}
 ```
 
 
@@ -250,7 +274,7 @@ grade_result(
 
 Create a histogram of the distribution of Airbnb listing prices (nightly rates) in Edinburgh and answer the following questions based on the histogram.
 
-```{r price-histogram, exercise=TRUE}
+```{r price-histogram, exercise = TRUE, fig.showtext = TRUE}
 ggplot(___, aes(x = ___)) +
   ___() +
   labs(
@@ -301,7 +325,9 @@ ggplot(edibnb, aes(x = price)) +
 ```
 
 ```{r price-histogram-check}
-grade_code("And note that there are a couple warnings, we'll get to those in a bit.")
+grade_this_code(
+  correct = "And note that there are a couple warnings, we'll get to those in a bit."
+)
 ```
 
 ```{r q2}

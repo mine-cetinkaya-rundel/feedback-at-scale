@@ -250,7 +250,7 @@ code span.wa { color: #ffff00; font-weight: bold; } /* Warning */
 </div>
 </div>
 <div id="section-option-2.-scaffolding-and-strict-check" class="section level3">
-<h3>Option 2. Scaffolding and Strict check</h3>
+<h3>Option 2. Scaffolding and strict check</h3>
 <p>Using <code>gradethis::grade_this_code()</code>:</p>
 <div class="tutorial-exercise" data-label="median-rating-option-2" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
 <pre class="text"><code>edibnb %&gt;%
@@ -296,11 +296,6 @@ code span.wa { color: #ffff00; font-weight: bold; } /* Warning */
   arrange(desc(median_rating))</code></pre>
 </div>
 </div>
-<div id="section-section" class="section level3">
-<h3></h3>
-<p><strong>Under the hood</strong></p>
-<div class="sourceCode" id="section-cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb11-1"><a href="#section-cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grade_this_code</span>()</span></code></pre></div>
-</div>
 <div id="section-option-3.-scaffolding-and-flexibility" class="section level3">
 <h3>Option 3. Scaffolding and flexibility</h3>
 <p>Using <code>gradethis::grade_this()</code>:</p>
@@ -340,32 +335,32 @@ code span.wa { color: #ffff00; font-weight: bold; } /* Warning */
   arrange(___)</code></pre>
 </div>
 </div>
-<div id="section-section-1" class="section level3">
+<div id="section-section" class="section level3">
 <h3></h3>
 <p><strong>Under the hood</strong></p>
-<div class="sourceCode" id="section-cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb18-1"><a href="#section-cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grade_this</span>({</span>
-<span id="section-cb18-2"><a href="#section-cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pass_if_equal</span>(</span>
-<span id="section-cb18-3"><a href="#section-cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(</span>
-<span id="section-cb18-4"><a href="#section-cb18-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">neighbourhood =</span> <span class="fu">c</span>(<span class="st">&quot;Old Town&quot;</span>, <span class="st">&quot;New Town&quot;</span>, <span class="st">&quot;West End&quot;</span>), </span>
-<span id="section-cb18-5"><a href="#section-cb18-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">median_rating =</span> <span class="fu">c</span>(<span class="dv">31</span>, <span class="dv">23</span>, <span class="dv">15</span>)</span>
-<span id="section-cb18-6"><a href="#section-cb18-6" aria-hidden="true" tabindex="-1"></a>      ), </span>
-<span id="section-cb18-7"><a href="#section-cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">message =</span> <span class="st">&quot;You&#39;ve succesfully calculated the median number of ratings and arranged them in descending order.&quot;</span></span>
-<span id="section-cb18-8"><a href="#section-cb18-8" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="section-cb18-9"><a href="#section-cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fail_if_equal</span>(</span>
-<span id="section-cb18-10"><a href="#section-cb18-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(</span>
-<span id="section-cb18-11"><a href="#section-cb18-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">neighbourhood =</span> <span class="fu">c</span>(<span class="st">&quot;West End&quot;</span>, <span class="st">&quot;New Town&quot;</span>, <span class="st">&quot;Old Town&quot;</span>), </span>
-<span id="section-cb18-12"><a href="#section-cb18-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">median_rating =</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">23</span>, <span class="dv">31</span>)</span>
-<span id="section-cb18-13"><a href="#section-cb18-13" aria-hidden="true" tabindex="-1"></a>      ), </span>
-<span id="section-cb18-14"><a href="#section-cb18-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">message =</span> <span class="st">&quot;You&#39;ve succesfully calculated the median number of ratings, but did you forget to arrange them in descending order?&quot;</span>)</span>
-<span id="section-cb18-15"><a href="#section-cb18-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fail_if_equal</span>(</span>
-<span id="section-cb18-16"><a href="#section-cb18-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(</span>
-<span id="section-cb18-17"><a href="#section-cb18-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">neighbourhood =</span> <span class="fu">c</span>(<span class="st">&quot;New Town&quot;</span>, <span class="st">&quot;Old Town&quot;</span>, <span class="st">&quot;West End&quot;</span>), </span>
-<span id="section-cb18-18"><a href="#section-cb18-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">median_rating =</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">31</span>, <span class="dv">15</span>)</span>
-<span id="section-cb18-19"><a href="#section-cb18-19" aria-hidden="true" tabindex="-1"></a>      ), </span>
-<span id="section-cb18-20"><a href="#section-cb18-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">message =</span> <span class="st">&quot;You&#39;ve succesfully calculated the median number of ratings, but did you forget to arrange them?&quot;</span></span>
-<span id="section-cb18-21"><a href="#section-cb18-21" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="section-cb18-22"><a href="#section-cb18-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fail</span>(<span class="at">message =</span> <span class="st">&quot;Not quite. Take a peek at the hints!&quot;</span>)</span>
-<span id="section-cb18-23"><a href="#section-cb18-23" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="section-cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="section-cb17-1"><a href="#section-cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grade_this</span>({</span>
+<span id="section-cb17-2"><a href="#section-cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pass_if_equal</span>(</span>
+<span id="section-cb17-3"><a href="#section-cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(</span>
+<span id="section-cb17-4"><a href="#section-cb17-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">neighbourhood =</span> <span class="fu">c</span>(<span class="st">&quot;Old Town&quot;</span>, <span class="st">&quot;New Town&quot;</span>, <span class="st">&quot;West End&quot;</span>), </span>
+<span id="section-cb17-5"><a href="#section-cb17-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">median_rating =</span> <span class="fu">c</span>(<span class="dv">31</span>, <span class="dv">23</span>, <span class="dv">15</span>)</span>
+<span id="section-cb17-6"><a href="#section-cb17-6" aria-hidden="true" tabindex="-1"></a>      ), </span>
+<span id="section-cb17-7"><a href="#section-cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">message =</span> <span class="st">&quot;You&#39;ve succesfully calculated the median number of ratings and arranged them in descending order.&quot;</span></span>
+<span id="section-cb17-8"><a href="#section-cb17-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="section-cb17-9"><a href="#section-cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fail_if_equal</span>(</span>
+<span id="section-cb17-10"><a href="#section-cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(</span>
+<span id="section-cb17-11"><a href="#section-cb17-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">neighbourhood =</span> <span class="fu">c</span>(<span class="st">&quot;West End&quot;</span>, <span class="st">&quot;New Town&quot;</span>, <span class="st">&quot;Old Town&quot;</span>), </span>
+<span id="section-cb17-12"><a href="#section-cb17-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">median_rating =</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">23</span>, <span class="dv">31</span>)</span>
+<span id="section-cb17-13"><a href="#section-cb17-13" aria-hidden="true" tabindex="-1"></a>      ), </span>
+<span id="section-cb17-14"><a href="#section-cb17-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">message =</span> <span class="st">&quot;You&#39;ve succesfully calculated the median number of ratings, but did you forget to arrange them in descending order?&quot;</span>)</span>
+<span id="section-cb17-15"><a href="#section-cb17-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fail_if_equal</span>(</span>
+<span id="section-cb17-16"><a href="#section-cb17-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(</span>
+<span id="section-cb17-17"><a href="#section-cb17-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">neighbourhood =</span> <span class="fu">c</span>(<span class="st">&quot;New Town&quot;</span>, <span class="st">&quot;Old Town&quot;</span>, <span class="st">&quot;West End&quot;</span>), </span>
+<span id="section-cb17-18"><a href="#section-cb17-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">median_rating =</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">31</span>, <span class="dv">15</span>)</span>
+<span id="section-cb17-19"><a href="#section-cb17-19" aria-hidden="true" tabindex="-1"></a>      ), </span>
+<span id="section-cb17-20"><a href="#section-cb17-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">message =</span> <span class="st">&quot;You&#39;ve succesfully calculated the median number of ratings, but did you forget to arrange them?&quot;</span></span>
+<span id="section-cb17-21"><a href="#section-cb17-21" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="section-cb17-22"><a href="#section-cb17-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fail</span>(<span class="at">message =</span> <span class="st">&quot;Not quite. Take a peek at the hints!&quot;</span>)</span>
+<span id="section-cb17-23"><a href="#section-cb17-23" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 </div>
 </div>
 <div id="section-collecting-data-learnrhash" class="section level2">
@@ -557,15 +552,15 @@ code span.wa { color: #ffff00; font-weight: bold; } /* Warning */
 <p>The <a href="https://rstudio-education.github.io/dsbox/"><strong>dsbox</strong></a> package contains learnr tutorials (and datasets) accompanying the <a href="https://datasciencebox.org/">Data Science Course in a Box</a> curriculum.</p>
 <p><img src="images/dsbox-1.png" width="80%" /></p>
 </div>
-<div id="section-section-2" class="section level3">
+<div id="section-section-1" class="section level3">
 <h3></h3>
 <p><img src="images/dsbox-2.png" width="50%" /></p>
 </div>
-<div id="section-section-3" class="section level3">
+<div id="section-section-2" class="section level3">
 <h3></h3>
 <p><img src="images/dsbox-3.png" width="50%" /></p>
 </div>
-<div id="section-section-4" class="section level3">
+<div id="section-section-3" class="section level3">
 <h3></h3>
 <iframe width="800" height="450" src="https://www.youtube.com/embed/mbpTYc2xBMY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
@@ -781,19 +776,19 @@ learnr:::store_exercise_cache("edibnb-nrow", list(setup = NULL, chunks = list(li
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "q1", question = structure("What does each row in the <code>edibnb<\u002fcode> dataset represent?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_99fb158", 
+"character")), answers = list(structure(list(id = "lnr_ans_4a9e7dd", 
     option = "The values of a certain variable", value = "The values of a certain variable", 
     label = structure("The values of a certain variable", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_48752d3", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_27df501", 
     option = "An individual Airbnb listing", value = "An individual Airbnb listing", 
     label = structure("An individual Airbnb listing", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = structure("Each row in the dataset contains one observation of each field, each relating to a single Airbnb listing.", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
-)), structure(list(id = "lnr_ans_38bf056", option = "An Airbnb booking", 
+)), structure(list(id = "lnr_ans_d909288", option = "An Airbnb booking", 
     value = "An Airbnb booking", label = structure("An Airbnb booking", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_14c5d55", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_2a8b18d", 
     option = "An Edinburgh neighbourhood", value = "An Edinburgh neighbourhood", 
     label = structure("An Edinburgh neighbourhood", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
@@ -805,7 +800,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "q1-answer", question = "q1"), loading = structure("<strong>Loading:<\u002fstrong> \nWhat does each row in the <code>edibnb<\u002fcode> dataset represent?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = FALSE, allow_retry = FALSE, 
-    seed = 892549143.584374, options = list()), class = c("learnr_radio", 
+    seed = 1074858893.49948, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
@@ -982,25 +977,25 @@ learnr:::store_exercise_cache("price-histogram", list(setup = NULL, chunks = lis
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "q2", question = structure("Which of the following describes the shape of the distribution of nightly rates of Airbnb edibnb in Edinburgh? Check all that apply.", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_f360762", 
+"character")), answers = list(structure(list(id = "lnr_ans_a2d34a5", 
     option = "Right skewed", value = "Right skewed", label = structure("Right skewed", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_ae88332", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_87bb942", 
     option = "Left skewed", value = "Left skewed", label = structure("Left skewed", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = structure("Skew is on the side of the longer tail", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
-)), structure(list(id = "lnr_ans_d7e9d13", option = "Symmetric", 
+)), structure(list(id = "lnr_ans_a6a480a", option = "Symmetric", 
     value = "Symmetric", label = structure("Symmetric", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = structure("If you were to draw a vertical line down the middle of the x-axis, would the left and right sides of the distribution look like mirror images?", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
-)), structure(list(id = "lnr_ans_9207d7b", option = "Unimodal", 
+)), structure(list(id = "lnr_ans_84ed02e", option = "Unimodal", 
     value = "Unimodal", label = structure("Unimodal", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_23fe5a2", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_a7b3275", 
     option = "Bimodal", value = "Bimodal", label = structure("Bimodal", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = structure("How many prominent peaks do you see?", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
-)), structure(list(id = "lnr_ans_d0d4afc", option = "Multimodal", 
+)), structure(list(id = "lnr_ans_88e287", option = "Multimodal", 
     value = "Multimodal", label = structure("Multimodal", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = structure("How many prominent peaks do you see?", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
@@ -1012,28 +1007,28 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "q2-answer", question = "q2"), loading = structure("<strong>Loading:<\u002fstrong> \nWhich of the following describes the shape of the distribution of nightly rates of Airbnb edibnb in Edinburgh? Check all that apply.\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = FALSE, allow_retry = FALSE, 
-    seed = 321666813.350212, options = list()), class = c("learnr_checkbox", 
+    seed = 195808565.90882, options = list()), class = c("learnr_checkbox", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "q3", question = structure("Which of the following is false?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_288c24d", 
+"character")), answers = list(structure(list(id = "lnr_ans_ea2a710", 
     option = "There are no listings with a nightly rate above £1,250.", 
     value = "There are no listings with a nightly rate above £1,250.", 
     label = structure("There are no listings with a nightly rate above £1,250.", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_dac479", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_8b3e158", 
     option = "More than 50% of listings have a nightly rate below £250.", 
     value = "More than 50% of listings have a nightly rate below £250.", 
     label = structure("More than 50% of listings have a nightly rate below £250.", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_bd95b6b", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_5e2dcf6", 
     option = "More than 25% of listings have a nightly rate above £500.", 
     value = "More than 25% of listings have a nightly rate above £500.", 
     label = structure("More than 25% of listings have a nightly rate above £500.", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_9ef7594", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_79b772", 
     option = "It is possible that some of the listings have a nightly rate of £0.", 
     value = "It is possible that some of the listings have a nightly rate of £0.", 
     label = structure("It is possible that some of the listings have a nightly rate of £0.", html = TRUE, class = c("html", 
@@ -1046,7 +1041,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "q3-answer", question = "q3"), loading = structure("<strong>Loading:<\u002fstrong> \nWhich of the following is false?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = FALSE, allow_retry = FALSE, 
-    seed = 2095704592.02411, options = list()), class = c("learnr_radio", 
+    seed = 1044622617.01356, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  

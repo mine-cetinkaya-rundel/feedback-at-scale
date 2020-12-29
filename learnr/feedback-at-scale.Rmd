@@ -139,7 +139,7 @@ edibnb %>%
 grade_this_code()
 ```
 
-### Option 2. Scaffolding and Strict check
+### Option 2. Scaffolding and strict check
 
 Using `gradethis::grade_this_code()`:
 
@@ -194,14 +194,6 @@ edibnb %>%
 ```{r median-rating-option-2-check}
 grade_this_code()
 ```
-
-###
-
-**Under the hood**
-
-```{r ref.label = "median-rating-option-2-check", eval = FALSE, echo = TRUE}
-```
-
 
 ### Option 3. Scaffolding and flexibility
 
